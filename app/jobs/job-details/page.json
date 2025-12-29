@@ -1,0 +1,23 @@
+{
+    "en": {
+        "job_overview": "Job Overview",
+        "job_description": "Job description",
+        "key_responsibilities": "Key responsibilities",
+        "apply_now": "Apply Now",
+        "skill": "Skill & Experience"
+    },
+    "cn": {
+        "job_overview": "职位概述",
+        "job_description": "职位描述",
+        "key_responsibilities": "主要职责",
+        "apply_now": "立即申请",
+        "skill": "技能与经验"
+    },
+    "es": {
+        "job_overview": "Descripción del trabajo",
+        "job_description": "Descripción del puesto",
+        "key_responsibilities": "Responsabilidades clave",
+        "apply_now": "Aplicar ahora",
+        "skill": "Habilidades y experiencia"
+    }
+}

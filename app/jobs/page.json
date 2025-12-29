@@ -1,0 +1,36 @@
+{
+    "en": {
+        "jobs": "Jobs",
+        "place_job": "Job title, keywords",
+        "place_country": "Country, city or province",
+        "place_categories": "All categories",
+        "place_advanced": "Advanced",
+        "find_jobs": "Find Jobs",
+        "all_jobs": "All Jobs",
+        "filter_head": "Search Results",
+        "sort_by": "Sort by"
+    },
+    "cn": {
+        "jobs": "工作",
+        "place_job": "职位名称，关键词",
+        "place_country": "国家，城市或省",
+        "place_categories": "所有类别",
+        "place_advanced": "高级",
+        "find_jobs": "寻找工作",
+        "all_jobs": "所有工作",
+        "filter_head": "搜索结果",
+        "sort_by": "排序依据"
+      },
+    "es": {
+        "jobs": "Empleos",
+        "place_job": "Título del trabajo, palabras clave",
+        "place_country": "País, ciudad o provincia",
+        "place_categories": "Todas las categorías",
+        "place_advanced": "Avanzado",
+        "find_jobs": "Buscar Empleos",
+        "all_jobs": "Todos los Empleos",
+        "filter_head": "Resultados de Búsqueda",
+        "sort_by": "Ordenar por"
+      }
+      
+}

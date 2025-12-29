@@ -1,0 +1,28 @@
+{
+    "en": {
+        "change_password": "Change Password",
+        "current": "Current Password",
+        "new": "New Password",
+        "submit": "Submit",
+        "pass_char": "Passwords should be more than 5 characters",
+        "pass_match": "New password should not match old password!"
+    },
+    "cn": {
+        "change_password": "更改密码",
+        "current": "当前密码",
+        "new": "新密码",
+        "submit": "提交",
+        "pass_char": "密码长度应超过5个字符",
+        "pass_match": "新密码不得与旧密码相同！"
+    },
+    "es": {
+        "change_password": "Cambiar Contraseña",
+        "current": "Contraseña Actual",
+        "new": "Nueva Contraseña",
+        "submit": "Enviar",
+        "pass_char": "Las contraseñas deben tener más de 5 caracteres",
+        "pass_match": "¡La nueva contraseña no debe coincidir con la contraseña anterior!"
+    }
+    
+    
+}

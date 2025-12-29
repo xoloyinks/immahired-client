@@ -1,0 +1,87 @@
+"use client"
+import { UserData } from '@/app/tokenContext'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import React, { useContext } from 'react'
+import Cookies from 'js-cookie'
+
+export default function SideNav({ navs, target, setMobileNavInview }: any) {
+    const [active, setActive] = useContext(UserData)
+    const pathName = usePathname();
+
+    const token = Cookies.get('token');
+    var tokenData: any;
+    if (token) {
+        tokenData = JSON.parse(token);
+    }
+
+    const logout = (e: any) => {
+        e.preventDefault();
+        setActive(false);
+        Cookies.remove('token');
+    }
+
+    return (
+        <section className='w-screen h-screen text-sm fixed flex justify-end z-40'>
+            <div className='w-full max-w-[500px] h-screen bg-white px-10 py-28 '>
+                {
+                    navs && navs.map((data: any, index: number) => {
+                        const showLink = (data?.id !== 7 && data?.id !== 8) || // Always show links except for candidate/employer
+                            (active && data?.id === 7 && tokenData.data.type === 'employer' || tokenData?.data.type === 'admin') || // Show candidate tab for employer
+                            (active && data?.id === 8 && tokenData?.data.type === 'talent'); // Show employer tab for candidate
+                        return (
+                            <>
+                                {
+                                    showLink && (
+
+                                        <div key={index} className='flex flex-col'>
+                                            <Link href={`${data.ref}`} className={`p-5 rounded-l-full ${pathName === data.ref ? "bg-abstract text-white" : ""}`}>
+                                                <span>{data.name.toLocaleUpperCase()}</span>
+                                            </Link>
+                                            {
+                                                data.id === 1 && (
+                                                    <>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about'}>{target.about}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#vision'}>{target.vision}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#mission'}>{target.mission}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#team'}>{target.team}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#founder'}>{target.founder}</Link>
+                                                    </>
+                                                )
+                                            }
+                                        </div>
+                                    )}
+                            </>
+
+                        )
+                    })
+                }
+
+                {
+                    active ?
+                        <>
+                            <div className='flex flex-col'>
+                                <Link href={tokenData.data.type === 'talent' ? '/candidate' : tokenData.data.type === 'admin' && tokenData.data.approved ? '/admin' : tokenData.data.type === 'employer' ? '/employer' : "/"} className={`p-5 rounded-l-full  ${tokenData.data.type === 'admin' && !tokenData.data.approved && 'cursor-not-allowed pointer-events-none'}`}>
+                                    <span>{target.dashboard.toLocaleUpperCase()}</span>
+                                </Link>
+                                <button onClick={logout} className={`p-5 rounded-l-full text-left`}>
+                                    <span>{target.logout.toLocaleUpperCase()}</span>
+                                </button>
+                            </div>
+                        </> :
+                        <>
+                            <div className='flex flex-col'>
+                                <Link href={`/register`} className={`p-5 rounded-l-full`}>
+                                    <span>{target.register.toLocaleUpperCase()}</span>
+                                </Link>
+                                <Link href={`/login`} className={`p-5 rounded-l-full`}>
+                                    <span>{target.login.toLocaleUpperCase()}</span>
+                                </Link>
+                            </div>
+                        </>
+
+                }
+            </div>
+        </section>
+    )
+}

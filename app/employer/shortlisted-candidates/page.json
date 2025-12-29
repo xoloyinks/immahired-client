@@ -1,0 +1,24 @@
+{
+    "en": {
+        "welcome": "Welcome Back",
+        "search": "Search",
+        "short_jobs": "Approved Candidates",
+        "jobs_found": "Candidates Found",
+        "job_title": "Job title"
+    },
+    "cn": {
+        "welcome": "欢迎回来",
+        "search": "搜索",
+        "short_jobs": "已批准的候选人",
+        "jobs_found": "找到的候选人",
+            "job_title": "职位名称"
+        
+    },
+    "es": {
+        "welcome": "Bienvenido de nuevo",
+        "search": "Buscar",
+        "short_jobs": "Candidatos aprobados",
+        "jobs_found": "Candidatos encontrados",
+            "job_title": "Título del trabajo"
+    }    
+}

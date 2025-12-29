@@ -1,0 +1,52 @@
+{
+    "en": {
+        "admin_dashboard": "Admin Dashboard",
+        "candidates": "Candidates",
+        "employers": "Employers",
+        "admins": "Admins",
+        "change_password": "Change Password",
+        "profile": "Profile",
+        "logout": "Logout",
+        "registered_candidates": "Approved Candidates",
+        "registered_employers": "Approved Employers",
+        "pending_candidates": "Pending Candidates",
+        "pending_employers": "Pending Employers",
+        "registered_users": "Registered Users",
+        "notification": "Notifications",
+        "welcome_back": "Welcome"
+    },
+    "es": {
+        "admin_dashboard": "Panel de administración",
+        "candidates": "Candidatos",
+        "employers": "Empleadores",
+        "admins": "Administradores",
+        "change_password": "Cambiar contraseña",
+        "profile": "Perfil",
+        "logout": "Cerrar sesión",
+        "registered_candidates": "Candidatos aprobados",
+        "registered_employers": "Empleadores aprobados",
+        "pending_candidates": "Candidatos pendientes",
+        "pending_employers": "Empleadores pendientes",
+        "registered_users": "Usuarios registrados",
+        "notification": "Notificaciones",
+        "welcome_back": "Bienvenido"
+    },
+    "cn": {
+        "admin_dashboard": "管理员面板",
+        "candidates": "候选人",
+        "employers": "雇主",
+        "admins": "管理员",
+        "change_password": "更改密码",
+        "profile": "个人资料",
+        "logout": "登出",
+        "registered_candidates": "已批准候选人",
+        "registered_employers": "已批准雇主",
+        "pending_candidates": "待处理候选人",
+        "pending_employers": "待处理雇主",
+        "registered_users": "已注册用户",
+        "notification": "通知",
+        "welcome_back": "欢迎回来"
+    }
+    
+
+}

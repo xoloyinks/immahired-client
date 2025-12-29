@@ -1,0 +1,61 @@
+{
+    "en": {
+        "can_details": "Candidate Details",
+        "applied_for": "Position Applied For",
+        "download_resume": "Download Resume",
+        "location": "Location",
+        "experience": "Experience",
+        "phone": "Phone Number",
+        "qualifications": "Qualifications",
+        "email": "E-mail",
+        "career_level": "Career Level",
+        "approve": "Accept Application",
+        "reject": "Reject Application",
+        "resposibility": "Responsibility",
+        "application": "Candidate Application",
+        "skills": "Skills",
+        "current_salary": "Current salary",
+        "salary_expectation": "Salary Expectation",
+        "cover_letter": "Cover Letter"
+    },
+    "cn": {
+        "can_details": "候选人详情",
+        "applied_for": "申请职位",
+        "download_resume": "下载简历",
+        "location": "地点",
+        "experience": "经验",
+        "phone": "电话号码",
+        "qualifications": "资格",
+        "email": "电子邮件",
+        "career_level": "职业水平",
+        "approve": "接受申请",
+        "reject": "拒绝申请",
+        "resposibility": "职责",
+        "application": "候选人申请",
+        "skills": "技能",
+        "current_salary": "当前薪资",
+        "salary_expectation": "薪资预期",
+        "cover_letter": "求职信"
+    },
+    "es": {
+        "can_details": "Detalles del candidato",
+        "applied_for": "Posición solicitada",
+        "download_resume": "Descargar currículum",
+        "location": "Ubicación",
+        "experience": "Experiencia",
+        "phone": "Número de teléfono",
+        "qualifications": "Calificaciones",
+        "email": "Correo electrónico",
+        "career_level": "Nivel profesional",
+        "approve": "Aceptar solicitud",
+        "reject": "Rechazar solicitud",
+        "resposibility": "Responsabilidad",
+        "application": "Solicitud del candidato",
+        "skills": "Habilidades",
+        "current_salary": "Salario actual",
+        "salary_expectation": "Expectativa salarial",
+        "cover_letter": "Carta de presentación"
+    }
+    
+    
+}

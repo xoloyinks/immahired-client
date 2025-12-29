@@ -1,0 +1,40 @@
+{
+    "en": {
+        "applied": "My Applied",
+        "applied_jobs": "Applied Jobs",
+        "search": "Search",
+        "app_found": "Applications Found",
+        "sort": "Sort By",
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "position": "Position Applied for",
+        "under_review": "under review",
+        "approved": "approved"
+    },
+    "cn": {
+        "applied": "我申请的",
+        "applied_jobs": "申请的职位",
+        "search": "搜索",
+        "app_found": "找到的申请",
+        "sort": "排序方式",
+        "newest": "最新",
+        "oldest": "最旧",
+        "position": "申请的职位",
+            "under_review": "审核中",
+            "approved": "已批准"
+    },
+    "es": {
+        "applied": "Mis Aplicaciones",
+        "applied_jobs": "Trabajos Aplicados",
+        "search": "Buscar",
+        "app_found": "Aplicaciones Encontradas",
+        "sort": "Ordenar Por",
+        "newest": "Más Nuevos",
+        "oldest": "Más Antiguos",
+        "position": "Posición Solicitada",
+            "under_review": "en revisión",
+            "approved": "aprobado"
+    }
+    
+    
+}

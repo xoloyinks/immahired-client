@@ -1,0 +1,57 @@
+{
+    "en": {
+        "my_jobs": "My Jobs",
+        "manage_jobs": "Manage Jobs",
+        "search": "Search",
+        "title": "Title",
+        "location": "Location",
+        "type": "Type",
+        "applicants": "No. of Applicants",
+        "actions":"Actions",
+        "required": "Qualification",
+        "dead_line": "Dead Line",
+        "sure": "Delete Job?",
+        "yes": "Yes",
+        "no": "No",
+        "application": "Applicants",
+        "refresh": "Refresh Job"
+    },
+    "cn": {
+        "my_jobs": "我的职位",
+        "manage_jobs": "管理职位",
+        "search": "搜索",
+        "title": "标题",
+        "location": "地点",
+        "type": "类型",
+        "applicants": "申请人数",
+        "actions": "操作",
+        "required": "资格",
+        "dead_line": "截止日期",
+        "sure": "删除职位？",
+        "yes": "是",
+        "no": "否",
+        "application": "申请人",
+            "refresh": "刷新职位"
+        
+    },
+    "es": {
+        "my_jobs": "Mis trabajos",
+        "manage_jobs": "Gestionar trabajos",
+        "search": "Buscar",
+        "title": "Título",
+        "location": "Ubicación",
+        "type": "Tipo",
+        "applicants": "Número de solicitantes",
+        "actions": "Acciones",
+        "required": "Calificación",
+        "dead_line": "Fecha límite",
+        "sure": "¿Eliminar trabajo?",
+        "yes": "Sí",
+        "no": "No",
+        "application": "Solicitantes",
+            "refresh": "Actualizar trabajo"
+        
+    }
+    
+    
+}

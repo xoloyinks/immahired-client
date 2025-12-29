@@ -1,0 +1,12 @@
+{
+    "en":{
+        "alerts": "Alerts",
+        "candidate_alert": "Candidate Alerts",
+        "search": "Search candidate...",
+        "filter": "Filter by job",
+        "all_candidates": "All candidates",
+        "alert_found": "Candidate Alert Found",
+        "view_profile": "View Profile",
+        "applied_for": "Job Applied For"
+    }
+}

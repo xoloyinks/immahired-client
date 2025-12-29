@@ -1,0 +1,31 @@
+{
+    "en": {
+        "welcome": "Welcome Back",
+        "search": "Search",
+        "short_jobs": "Shortlisted Jobs",
+        "jobs_found": "Jobs Found",
+        "apply_now": "Apply now",
+        "position": "Position",
+        "view_details": "Details"
+    },
+    "cn": {
+        "welcome": "欢迎回来",
+        "search": "搜索",
+        "short_jobs": "已入围职位",
+        "jobs_found": "找到的职位",
+        "apply_now": "立即申请",
+        "position": "职位",
+        "view_details": "查看详情"
+    },
+    "es": {
+        "welcome": "Bienvenido de nuevo",
+        "search": "Buscar",
+        "short_jobs": "Trabajos Preseleccionados",
+        "jobs_found": "Trabajos Encontrados",
+        "apply_now": "Aplicar ahora",
+        "position": "Posición",
+        "view_details": "Ver detalles"
+    }
+    
+    
+}

@@ -1,0 +1,49 @@
+{
+    "en": {
+        "edit_docs": "Edit Documents",
+        "work_exp": "Work Experience",
+        "resume": "My Resume",
+        "resume_att": "Resume attachment",
+        "certificate_att": "Certificate attachment",
+        "education": "Education",
+        "browse": "Browse",
+        "warn": "File should not exceed 1MB",
+        "types": "Upload File, Pdf, Doc, Docx",
+        "typesCer": "Upload Image, Png, Jpeg, SVG, WebP",
+        "save_changes": "Save changes",
+        "not_valid": "Upload supported file types only.",
+        "doc_uploaded": "Documents Successfully Uploaded"
+    },
+    "cn": {
+        "edit_docs": "编辑文档",
+        "work_exp": "工作经历",
+        "resume": "我的简历",
+        "resume_att": "简历附件",
+        "certificate_att": "证书附件",
+        "education": "教育背景",
+        "typesCer": "上传图片, Png, Jpeg, SVG, WebP",
+        "browse": "浏览",
+        "warn": "文件大小不得超过1MB",
+        "types": "上传文件，PDF，DOC，DOCX",
+        "save_changes": "保存更改",
+        "not_valid": "仅上传支持的文件类型。",
+        "doc_uploaded": "文档上传成功"
+    },
+    "es": {
+        "edit_docs": "Editar Documentos",
+        "work_exp": "Experiencia Laboral",
+        "resume": "Mi Currículum",
+        "resume_att": "Adjunto del Currículum",
+        "certificate_att": "Adjunto del Certificado",
+        "education": "Educación",
+        "typesCer": "Subir imagen, Png, Jpeg, SVG, WebP",
+        "browse": "Examinar",
+        "warn": "El archivo no debe exceder 1MB",
+        "types": "Subir archivo, PDF, DOC, DOCX",
+        "save_changes": "Guardar cambios",
+        "not_valid": "Sube solo tipos de archivos admitidos.",
+        "doc_uploaded": "Documentos subidos con éxito"
+    }
+    
+    
+}

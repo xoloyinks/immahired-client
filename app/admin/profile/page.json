@@ -1,0 +1,58 @@
+{
+    "en": {
+        "profile": "Profile",
+        "edit_profile": "Edit Profile",
+        "last_name": "Last name",
+        "first_name": "First name",
+        "dob": "Date of Birth",
+        "gender": "Gender",
+        "age": "Age",
+        "phone_number": "Phone number",
+        "email": "Email",
+        "qualification": "Qualification",
+        "experience": "Experience time",
+        "salary_type": "Salary type",
+        "languages": "Languages",
+        "location": "Location",
+        "save_changes": "Save Changes",
+        "user_saved": "Saved Successfully!"
+    },
+    "es": {
+        "profile": "Perfil",
+        "edit_profile": "Editar Perfil",
+        "full_name": "Nombre completo",
+        "dob": "Fecha de nacimiento",
+        "gender": "Género",
+        "age": "Edad",
+        "phone_number": "Número de teléfono",
+        "email": "Correo electrónico",
+        "qualification": "Calificación",
+        "experience": "Tiempo de experiencia",
+        "salary_type": "Tipo de salario",
+        "languages": "Idiomas",
+        "location": "Ubicaciones",
+        "save_changes": " Guardar cambios",
+            "last_name": "Apellido",
+            "first_name": "Nombre"
+    },
+    "cn": {
+        "profile": "个人资料",
+        "edit_profile": "编辑个人资料",
+        "full_name": "全名",
+        "dob": "出生日期",
+        "gender": "性别",
+        "age": "年龄",
+        "phone_number": "电话号码",
+        "email": "电子邮件",
+        "qualification": "学历",
+        "experience": "工作经验",
+        "salary_type": "薪资类型",
+        "languages": "语言",
+        "location": "地点",
+        "save_changes": "保存更改",
+            "last_name": "姓",
+            "first_name": "名"
+    }
+    
+    
+}
