@@ -300,10 +300,10 @@ const [language, setLanguage] = languageContext;
                   }}
                   viewport={{ once: true }}
                   className=" sm:max-w-[60%] font-black max-sm:px-10">
-                    <span className="text-6xl max-sm:text-4xl">{target.h1}</span>
-                    <div className="text-black text-6xl max-sm:text-4xl">
+                    <span className="text-6xl max-sm:text-2xl">{target.h1}</span>
+                    <div className="text-black text-6xl max-sm:text-2xl">
                       <Typewriter
-                        options={{
+                        options = {{
                           strings: [target.h1_add, target.h1_add2],
                           autoStart: true,
                           loop: true,
@@ -322,7 +322,7 @@ const [language, setLanguage] = languageContext;
                     damping: 18,
                     delay: 0.5
                   }}
-                className="text-xl font-bold max-sm:text-lg max-sm:px-10 sm:max-w-[55%]">
+                className="text-xl font-bold max-sm:text-sm max-sm:px-10 sm:max-w-[55%]">
                   {target.p_banner}
                 </motion.p>
 

@@ -23,7 +23,7 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
     }
 
     return (
-        <section className='w-screen h-screen text-sm fixed flex justify-end z-40'>
+        <section className='w-screen h-screen text-xs fixed flex justify-end z-40'>
             <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 '>
             <div className='flex justify-end mb-3'>
                 <ReactFlagsSelect
