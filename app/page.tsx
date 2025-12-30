@@ -279,10 +279,10 @@ const [language, setLanguage] = languageContext;
                 <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
                   <div className="marquee-track">
                     <span className="flex gap-20">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle /></span>)} 
+                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle className="max-sm:hidden" /></span>)} 
                     </span>
                     <span className="flex gap-10">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i}  <FaRegDotCircle /></span>)}
+                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i}  <FaRegDotCircle className="max-sm:hidden" /></span>)}
                     </span>
                   </div>
                 </div>
