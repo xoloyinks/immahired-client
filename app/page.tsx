@@ -243,7 +243,7 @@ const [language, setLanguage] = languageContext;
   const target: any = jsonData[language]
 
   const [showAll, setShowAll] = useState(false);
-  const visibleIndustries = showAll ? industries : industries.slice(0, 6);
+  const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 6);
 
 
   const industriesMarquee = [
@@ -712,7 +712,7 @@ const [language, setLanguage] = languageContext;
                   </div>
 
                   {/* Show More / Less */}
-                  {industries.length > 6 && (
+                  {industries.length > 6 && !isMobile && (
                     <div className="flex justify-center mt-16">
                       <button
                         onClick={() => setShowAll(!showAll)}
