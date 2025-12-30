@@ -568,7 +568,7 @@ const [language, setLanguage] = languageContext;
                   text="Driven by the belief that everyone deserves a chance to succeed, IMMA HIRED helps talented individuals find meaningful careers and build a future in China, one success story at a time."
                 />
 
-                  <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 sm:py-16 sm:hidden">
+                  <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:-translate-y-10 gap-8 mt-20 sm:py-16 sm:hidden">
                       {[
                         { value: "100+", label: "Daily Active Users" },
                         { value: "5K+", label: "Open Job Positions" },
