@@ -113,7 +113,7 @@ export default function Founder() {
         </div>
 
         {/* CONTROLS */}
-        <div className="flex items-center gap-6 pt-4">
+        <div className="flex items-center gap-6 sm:pt-4">
           <button
             onClick={prev}
             disabled={index === 0}

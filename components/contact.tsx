@@ -79,7 +79,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
       </motion.div>
 
       {/* CONTACT CARDS */}
-      <div className="max-sm:px-5">
+      <div className="max-sm:px-5 max-sm:mb-10">
         <motion.div
           className="sm:-translate-y-24 flex gap-6 sm:flex-row flex-col justify-evenly"
           variants={container}
