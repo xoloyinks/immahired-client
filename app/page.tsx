@@ -502,7 +502,7 @@ const [language, setLanguage] = languageContext;
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="w-full sm:w-[45%] max-w-2xl"
                   >
-                    <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">
+                    <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
                       About Us
                     </p>
 
