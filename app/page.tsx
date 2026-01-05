@@ -3,7 +3,7 @@ import Image from "next/image";
 import pageLanguage from "@/app/page.json"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Cookies from 'js-cookie'
-import { FaChartLine, FaCode, FaRegDotCircle, FaSearch } from "react-icons/fa";
+import { FaChartLine, FaCode, FaRegDotCircle, FaSearch, FaUsers } from "react-icons/fa";
 import { useContext, useState, useRef, useEffect } from "react";
 import { LanguageData } from "./context";
 import Testimonial from "@/components/testimonials";
@@ -12,7 +12,7 @@ import Footer from "@/components/footer";
 import { useGetJobsQuery } from "./api/general";
 import { UserData } from "./tokenContext";
 import { toast, ToastContainer } from "react-toastify";
-import { FaArrowTrendUp } from "react-icons/fa6";
+import { FaArrowTrendUp, FaToolbox } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from 'typewriter-effect';
 import { GrUserWorker } from "react-icons/gr";
@@ -323,6 +323,138 @@ const [language, setLanguage] = languageContext;
     }
   ]
 
+  type Mode = "talent" | "business";
+
+  const Toggle = ({
+  mode,
+  setMode,
+}: {
+  mode: Mode;
+  setMode: (m: Mode) => void;
+}) => {
+  return (
+    <div className="relative h-fit inline-flex justify-center max-sm:text-sm items-center bg-main/30 p-2 rounded-full mb-20">
+      {/* Sliding indicator */}
+      <motion.div
+        className="absolute top-2 left-2 h-[52px] w-[160px] sm:w-[200px] rounded-full bg-main"
+        animate={{
+          x: mode === "talent" ? 0 : 200,
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      />
+
+      <button
+        onClick={() => setMode("talent")}
+        className={`relative z-10 flex items-center h-[52px] gap-3 px-4 sm:px-8 py-3 w-[180px] sm:w-[200px] justify-center font-semibold ${
+          mode === "talent" ? "text-white" : "text-white"
+        }`}
+      >
+        <FaUsers /> For Talents
+      </button>
+
+      <button
+        onClick={() => setMode("business")}
+        className={`relative z-10 flex items-center h-[52px] gap-3 px-4 sm:px-8 py-3 w-[180px] sm:w-[200px] justify-center font-semibold ${
+          mode === "business" ? "text-white" : "text-white"
+        }`}
+      >
+        <FaToolbox /> For Business
+      </button>
+    </div>
+
+  );
+};
+
+const STEPS = {
+  talent: [
+    {
+      step: "1",
+      title: "Create Your Profile",
+      description:
+        "Sign up in minutes and build a professional profile that highlights your skills and experience.",
+    },
+    {
+      step: "2",
+      title: "Find Flexible Jobs",
+      description:
+        "Browse available roles that match your availability and career goals.",
+    },
+    {
+      step: "3",
+      title: "Get Paid Easily",
+      description:
+        "Work confidently, get reviewed, and receive secure payments on time.",
+    },
+  ],
+  business: [
+    {
+      step: "1",
+      title: "Sign up, It's Free!",
+      description:
+        "Our team will set up your account and help you build an easy-to-use dashboard.",
+    },
+    {
+      step: "2",
+      title: "Post jobs in minutes",
+      description:
+        "Create and post anywhere from 1–100 job openings with just a few clicks.",
+    },
+    {
+      step: "3",
+      title: "Review Your Staff",
+      description:
+        "View bios, reviews, rosters, and pay workers effortlessly.",
+    },
+  ],
+};
+
+
+const Steps = ({ mode }: { mode: Mode }) => {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={mode}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left"
+      >
+        {STEPS[mode].map((item) => (
+          <StepCard key={item.step} {...item} />
+        ))}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const StepCard = ({
+  step,
+  title,
+  description,
+}: {
+  step: string;
+  title: string;
+  description: string;
+}) => {
+  return (
+    <div className="bg-blue-900 rounded-2xl p-10 text-white shadow-xl">
+      <div className="flex items-center gap-4 mb-6">
+        <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
+          {step}
+        </span>
+        <h3 className="text-2xl font-extrabold">{title}</h3>
+      </div>
+
+      <p className="text-white/90 leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+};
+
+
+const [mode, setMode] = useState<Mode>("talent");
 
 
 
@@ -332,7 +464,7 @@ const [language, setLanguage] = languageContext;
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 16 : 11.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 18 : 11.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -1010,13 +1142,29 @@ const [language, setLanguage] = languageContext;
                       </div>
                   </motion.div>
                 </section>
+                
+                <section className="relative w-full py-32 mt-20 bg-abstract overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('/images/topography.svg')] opacity-20" />
+
+                  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+                    <h2 className="text-white text-3xl sm:text-5xl font-extrabold mb-14">
+                      How It Works?
+                    </h2>
+
+                    <Toggle mode={mode} setMode={setMode} />
+
+                    <Steps mode={mode} />
+                  </div>
+                </section>
+
+
 
                 <section className="py-20">
                     <Testimonial target={target} />
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 15 : 10.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 17 : 10.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
