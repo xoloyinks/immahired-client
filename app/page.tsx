@@ -438,7 +438,11 @@ const StepCard = ({
   description: string;
 }) => {
   return (
-    <div className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl">
       <div className="flex items-center gap-4 mb-6">
         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
           {step}
@@ -449,7 +453,7 @@ const StepCard = ({
       <p className="text-white/90 leading-relaxed">
         {description}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -1143,7 +1147,7 @@ const [mode, setMode] = useState<Mode>("talent");
                   </motion.div>
                 </section>
                 
-                <section className="relative w-full py-32 mt-20 bg-abstract overflow-hidden">
+                <section className="relative w-full py-20 sm:py-32 mt-20 bg-abstract overflow-hidden">
                   <div className="absolute inset-0 bg-[url('/images/topography.svg')] opacity-20" />
 
                   <div className="relative z-10 max-w-7xl mx-auto sm:px-6 text-center">
