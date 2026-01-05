@@ -266,7 +266,7 @@ const [language, setLanguage] = languageContext;
   const target: any = jsonData[language]
 
   const [showAll, setShowAll] = useState(false);
-  const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 6);
+  const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 8);
 
 
   const industriesMarquee = [
@@ -642,7 +642,7 @@ const [mode, setMode] = useState<Mode>("talent");
                           {/* PLAY / PAUSE ICON */}
                           <div className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 ${
                               !isPlaying 
-                                ? 'bg-main/50 group-hover:bg-main/100' 
+                                ? 'bg-black/50 group-hover:bg-main/100' 
                                 : 'bg-transparent'
                             }`}
                             >
@@ -992,7 +992,7 @@ const [mode, setMode] = useState<Mode>("talent");
                   </p>
 
                   {/* Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
                     {visibleIndustries.map((item, index) => (
                       <motion.div
                         key={index}
@@ -1021,7 +1021,7 @@ const [mode, setMode] = useState<Mode>("talent");
 
                         {/* Header */}
                         <div className="relative z-20 px-6 pt-6 pb-2">
-                          <h3 className="text-xl font-semibold tracking-tight text-gray-100 group-hover:text-main transition-colors">
+                          <h3 className="sm:text-lg text-xl font-semibold tracking-tight text-gray-100 group-hover:text-main transition-colors">
                             {item.title}
                           </h3>
                           <p className="mt-1 text-[10px] uppercase tracking-wider text-gray-400">
@@ -1080,7 +1080,7 @@ const [mode, setMode] = useState<Mode>("talent");
                   </div>
 
                   {/* Show More / Less */}
-                  {industries.length > 6 && !isMobile && (
+                  {/* {industries.length > 6 && !isMobile && (
                     <div className="flex justify-center mt-16">
                       <button
                         onClick={() => setShowAll(!showAll)}
@@ -1096,11 +1096,24 @@ const [mode, setMode] = useState<Mode>("talent");
                         {showAll ? "Show Less" : "Show More"}
                       </button>
                     </div>
-                  )}
+                  )} */}
                 </section>
 
-                <section className="sm:py-14" id="team">
-                  <h2 className="text-2xl sm:text-5xl pb-10 sm:p-20 text-center  font-bold">Meet The Team</h2>
+                <section className="sm:py-12" id="team">
+                  <h2 className="text-center p-10 mb-20">
+                    <span className="block text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
+                      The People Behind It
+                    </span>
+
+                    <span className="block text-4xl sm:text-5xl tracking-[0.2em] font-black text-abstract">
+                      Meet
+                      <span className="inline-block mx-3 text-main ">The</span>
+                      Team
+                    </span>
+                  </h2>
+
+
+
                   <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
