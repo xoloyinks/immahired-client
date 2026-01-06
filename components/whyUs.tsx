@@ -1,12 +1,12 @@
 import React from 'react'
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { HiUserGroup } from 'react-icons/hi2'
 import { MdVerifiedUser } from 'react-icons/md'
 import { FaChartLine } from 'react-icons/fa'
 import { VscWorkspaceTrusted } from 'react-icons/vsc'
 
 
-export default function WhyUs() {
+export default function WhyUs({ target }: any) {
 
     const Why = ({ icon, title, details }: any) => {
       return (
@@ -31,18 +31,18 @@ export default function WhyUs() {
       const whyChooseUs = [
         {
           iconSvg: <HiUserGroup />,
-          title: 'Retain Top Talent',
-          details: "Providing clear career paths and growth opportunities is key to retaining top talent."
+          title: target.why_us_title_1,
+          details: target.why_us_details_1
         },
         {
           iconSvg: <MdVerifiedUser />,
-          title: 'Stay Compliant',
-          details: "Educate employees about compliance requirements through regular training"
+          title: target.why_us_title_2,
+          details: target.why_us_details_2
         },
         {
           iconSvg: <FaChartLine />,
-          title: 'Improve Employee',
-          details: "Invest in employee training development programs enhance skill and knowledge."
+          title: target.why_us_title_3,
+          details: target.why_us_details_3
         }
       ]
     
@@ -77,7 +77,7 @@ export default function WhyUs() {
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                           >
-                            Why Choose Us
+                            {target.why_us}
                           </motion.h2>
         
                           <div className="flex sm:flex-row flex-col justify-evenly w-full gap-8">

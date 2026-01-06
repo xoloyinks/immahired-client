@@ -4,7 +4,9 @@ import { FaToolbox, FaUsers } from 'react-icons/fa6';
 
 type ModeType = "talent" | "business";
 
-  const Toggle = ({
+
+export default function HowItWorks({target}: any) {
+    const Toggle = ({
   mode,
   setMode,
 }: {
@@ -28,7 +30,7 @@ type ModeType = "talent" | "business";
           mode === "talent" ? "text-white" : "text-white"
         }`}
       >
-        <FaUsers /> For Talents
+        <FaUsers /> {target.for_talent}
       </button>
 
       <button
@@ -37,7 +39,7 @@ type ModeType = "talent" | "business";
           mode === "business" ? "text-white" : "text-white"
         }`}
       >
-        <FaToolbox /> For Business
+        <FaToolbox /> {target.for_business}
       </button>
     </div>
 
@@ -48,41 +50,41 @@ const STEPS = {
   talent: [
     {
       step: "1",
-      title: "Create Your Profile",
+      title: target.how_it_works_step_1_title ,
       description:
-        "Sign up in minutes and build a professional profile that highlights your skills and experience.",
+        target.how_it_works_step_1_description,
     },
     {
       step: "2",
-      title: "Find Flexible Jobs",
+      title: target.how_it_works_step_2_title,
       description:
-        "Browse available roles that match your availability and career goals.",
+        target.how_it_works_step_2_description,
     },
     {
       step: "3",
-      title: "Get Paid Easily",
+      title: target.how_it_works_step_3_title,
       description:
-        "Work confidently, get reviewed, and receive secure payments on time.",
+        target.how_it_works_step_3_description,
     },
   ],
   business: [
     {
       step: "1",
-      title: "Sign up, It's Free!",
+      title: target.set_up_your_account,
       description:
-        "Our team will set up your account and help you build an easy-to-use dashboard.",
+        target.set_up_your_account_description,
     },
     {
       step: "2",
-      title: "Post jobs in minutes",
+      title: target.post_job_openings,
       description:
-        "Create and post anywhere from 1–100 job openings with just a few clicks.",
+       target.post_job_openings_description,
     },
     {
       step: "3",
-      title: "Review Your Staff",
+      title: target.manage_applications,
       description:
-        "View bios, reviews, rosters, and pay workers effortlessly.",
+        target.manage_applications_description,
     },
   ],
 };
@@ -135,11 +137,6 @@ const StepCard = ({
     </motion.div>
   );
 };
-
-
-
-
-export default function HowItWorks() {
     const [mode, setMode] = useState<ModeType>("talent");
   return (
     <section className="relative w-full py-20 sm:py-32 mt-20 bg-abstract overflow-hidden">
@@ -147,7 +144,7 @@ export default function HowItWorks() {
 
                   <div className="relative z-10 max-w-7xl mx-auto sm:px-6 text-center">
                     <h2 className="text-white text-3xl sm:text-5xl font-extrabold mb-14">
-                      How It Works?
+                      {target.how_it_works}
                     </h2>
 
                     <Toggle mode={mode} setMode={setMode} />

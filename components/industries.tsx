@@ -9,97 +9,98 @@ import { TbRibbonHealth } from 'react-icons/tb';
 import { BsClipboardData } from 'react-icons/bs';
 import { HiAcademicCap } from 'react-icons/hi2';
 
-const industries = [
+
+
+
+export default function Industries({ target }: any) {
+  const industries = [
   {
-    title: "High-Tech & AI",
+    title: target.industry_1,
     icon: <FaCode />,
     industries: [
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Tech Startups",
-      "Software Development",
-      "Cybersecurity",
+      target.industry_1_1,
+      target.industry_1_2,
+      target.industry_1_3,
+      target.industry_1_4,
+      target.industry_1_5,
     ],
   },
   {
-    title: "Robotics",
+    title: target.industry_3,
     icon: <RiRobot3Fill />,
     industries: [
-      "Robotics Manufacturing",
-      "Automation",
-      "Smart Manufacturing",
-      "Industrial Automation",
-      "R&D",
+      target.industry_2_1,
+      target.industry_2_2,
+      target.industry_2_3,
+      target.industry_2_4,
+      target.industry_2_5,
     ],
   },
   {
-    title: "Environmental Health & Safety (EHS)",
+    title: target.industry_2,
     icon: <MdHealthAndSafety />,
     industries: [
-      "Environmental Consulting",
-      "Sustainability",
-      "Government & NGOs",
-      "Energy & Manufacturing",
+      target.industry_3_1,
+      target.industry_3_2,
+      target.industry_3_3,
+      target.industry_3_4,
     ],
   },
   {
-    title: "Medical & Healthcare",
+    title: target.industry_6,
     icon: <GiHealthNormal />,
     industries: [
-      "Hospitals & Clinics",
-      "Medical Devices",
-      "Digital Health",
-      "Biotechnology",
-      "Public Health",
+      target.industry_6_1,
+      target.industry_6_2,
+      target.industry_6_3,
+      target.industry_6_4,
+      target.industry_6_5,
     ],
   },
   {
-    title: "Pharmaceutical",
+    title: target.industry_7,
     icon: <TbRibbonHealth />,
     industries: [
-      "Pharmaceuticals",
-      "Biotech",
-      "Drug Discovery",
-      "Clinical Research",
-      "Regulatory Affairs",
+      target.industry_7_1,
+      target.industry_7_5,
+      target.industry_7_2,
+      target.industry_7_4,
+      target.industry_7_3,
     ],
   },
   {
-    title: "Mechanical & Electrical Engineering",
+    title: target.industry_8,
     icon: <MdEngineering />,
     industries: [
-      "Automotive",
-      "Aerospace & Defense",
-      "Energy",
-      "Manufacturing",
-      "Robotics & Automation",
+      target.industry_8_1,
+      target.industry_8_2,
+      target.industry_8_3,
+      target.industry_8_4,
+      target.industry_8_5,
     ],
   },
   {
-    title: "Data Science",
+    title: target.industry_4,
     icon: <BsClipboardData />,
     industries: [
-      "AI & Software",
-      "Healthcare Analytics",
-      "Finance & Fintech",
-      "E-commerce",
-      "Social Media Analytics",
+      target.industry_4_1,
+      target.industry_4_2,
+      target.industry_4_3,
+      target.industry_4_4,
+      target.industry_4_5,
     ],
   },
   {
-    title: "Research & Academia",
+    title: target.industry_5,
     icon: <HiAcademicCap />,
     industries: [
-      "Universities",
-      "Research Institutes",
-      "Innovation Labs",
-      "Think Tanks & NGOs",
+      target.industry_5_1,
+      target.industry_5_2,
+      target.industry_5_3,
+      target.industry_5_4,
     ],
   },
 ];
-
-
-export default function Industries() {
     const isMobile = useMediaQuery({ maxWidth: 640 })
     const [showAll, setShowAll] = useState(false);
     const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 8);
@@ -113,11 +114,11 @@ export default function Industries() {
                     transition={{ duration: 0.4 }}
                     className="text-center text-4xl sm:text-5xl font-black mb-4"
                   >
-                    Industries We Serve
+                    {target.explore_industries}
                   </motion.h2>
 
                   <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16 max-sm:text-sm">
-                  <b>IMMA HIRED</b> specializes in recruiting top talent with MBA, Masters, and PhD degrees from QS-ranked universities across a range of cutting-edge industries. These include High-Tech, AI, Robotics, Environmental Health and Safety, Medical, Pharmaceutical, Mechanical and Electrical Engineering, Data Science, and Research. We connect businesses with exceptional graduates who are shaping the future of these dynamic fields.
+                    {target.we_serve_various_industries_text}
                   </p>
 
                   {/* Grid */}
@@ -154,7 +155,7 @@ export default function Industries() {
                             {item.title}
                           </h3>
                           <p className="mt-1 text-[10px] uppercase tracking-wider text-gray-400">
-                            Industries
+                            {target.industries}
                           </p>
                         </div>
 

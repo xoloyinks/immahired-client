@@ -259,7 +259,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
     </motion.nav>
     {
       moblieNavInview && (
-        <SideNav navs={navs} language={language} type={tokenData} target={target} handleChange={() => handleChange} setMobileNavInview={setMobileNavInview} />
+        <SideNav navs={navs} language={language} type={tokenData} target={target} handleChange={handleChange} setMobileNavInview={setMobileNavInview} />
       )
     }
     </>

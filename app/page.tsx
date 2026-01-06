@@ -64,8 +64,8 @@ const [language, setLanguage] = languageContext;
   const target: any = jsonData[language]
 
   const industriesMarquee = [
-    "High Tech", "Environmental Health", "Robotics", "Data Science", "Researchers",
-    "Medical Fields", "Pharmaceutical", "Mechanical Engineering", "Electrical Engineering"
+    target.industry_1, target.industry_2, target.industry_3, target.industry_4, target.industry_5,
+    target.industry_6, target.industry_7, target.industry_8, target.industry_9
   ]
 
   const handleHire = () => {
@@ -175,7 +175,7 @@ const [language, setLanguage] = languageContext;
                       flex gap-2 items-center justify-center
                     "
                   >
-                    <span>Find Jobs</span>
+                    <span>{target.find_jobs}</span>
                     <FaArrowTrendUp className="transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
 
@@ -194,17 +194,17 @@ const [language, setLanguage] = languageContext;
                       hover:-translate-y-[1px]
                     "
                   >
-                    <span>Hire Talents</span>
+                    <span>{target.hire_talents}</span>
                   </button>
                 </motion.div>
               </ParallaxLayer>
 
               <ParallaxLayer offset={1} speed={0} className="px-3 py-20 sm:px-20">
-                  <Video />
+                  <Video target={target} />
               </ParallaxLayer>
 
               <ParallaxLayer offset={2} speed={0} className="relative max-sm:py-12">
-                <WhyUs />
+                <WhyUs target={target} />
               </ParallaxLayer>
 
               <ParallaxLayer offset={isMobile ? 3.4 : 3} speed={0} className="max-sm:hidden">
@@ -225,8 +225,9 @@ const [language, setLanguage] = languageContext;
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
+                      className="sm:w-[55%] flex mx-auto justify-center"
                     >
-                      Research Employers <br /> Before You Apply
+                      {target.research}
                     </motion.p>
                 </motion.div>
               </ParallaxLayer>
@@ -236,9 +237,9 @@ const [language, setLanguage] = languageContext;
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
                   </p>
-                  <h2 className="text-center font-black text-xl sm:text-4xl">Overseas Talent</h2>
-                  <p className="text-center text-sm">
-                    Join over 100 workers who <br /> use IMMA HIRED to find flexible and temp to hire
+                  <h2 className="text-center font-black text-xl sm:text-4xl">{target.overseas_talent}</h2>
+                  <p className="text-center text-sm sm:w-[90%] mx-auto">
+                    {target.overseas_talent_p}
                   </p>
                   <button 
                     onClick={() => window.location.href = "/jobs"}
@@ -254,7 +255,7 @@ const [language, setLanguage] = languageContext;
                       transition-all duration-300 ease-out
                       hover:shadow-lg
                       hover:-translate-y-[1px]">
-                    Find Jobs
+                    {target.find_jobs}
                   </button>
                   <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
                     <Image
@@ -271,8 +272,8 @@ const [language, setLanguage] = languageContext;
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <BsBuildingsFill />
                   </p>
-                  <h2 className="text-center font-black text-xl sm:text-4xl">For Organizations</h2>
-                  <p className="text-center text-sm">Finding individuals who share your <br /> company&apos;s values and vision can contribute  to a cohesive</p>
+                  <h2 className="text-center font-black text-xl sm:text-4xl">{target.for_organizations}</h2>
+                  <p className="text-center text-sm sm:w-[90%] mx-auto">{target.for_organizations_p}</p>
                   <button 
                     onClick={handleHire}
                     className="
@@ -287,7 +288,7 @@ const [language, setLanguage] = languageContext;
                       transition-all duration-300 ease-out
                       hover:shadow-lg
                       hover:-translate-y-[1px]
-                  ">Hire Talents</button>
+                  ">{target.hire_talents}</button>
                   <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
                     <Image 
                       src={"/images/3525444.jpg"}
@@ -302,9 +303,9 @@ const [language, setLanguage] = languageContext;
               <ParallaxLayer offset={ isMobile ? 4.59 : 4.1} className="max-sm:hidden">
                   <div className="relative grid grid-cols-1 sm:grid-cols-3 -translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
-                        { value: "100+", label: "Daily Active Users" },
-                        { value: "5K+", label: "Open Job Positions" },
-                        { value: "10K+", label: "Success Stories Shared" },
+                        { value: "100+", label: target.metrics_1 },
+                        { value: "5K+", label: target.metrics_2 },
+                        { value: "10K+", label: target.metrics_3 },
                       ].map((item, i) => (
                         <div
                           key={i}
@@ -363,43 +364,43 @@ const [language, setLanguage] = languageContext;
                     delay: 0.5,
                   }}
                   viewport={{ once: true }}
-                  className="text-4xl sm:text-9xl text-gray-300 font-extrabold sm:leading-[90px]"
+                  className="text-4xl sm:text-9xl text-gray-300 font-extrabold sm:leading-[90px] sm:w-[50%]"
                 >
-                  <span className="text-5xl">OUR</span>  <br /> STORY
+                  <span className="text-5xl sm:text-7xl">{target.our_story}</span>
                 </motion.h2>
               </ParallaxLayer>
 
               <ParallaxLayer sticky={{ start: isMobile ? 5.3 : 4.8, end: isMobile ? 5.3 : 4.8 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="01"
-                  title="The Beginning"
-                  insight="Built from lived experience, not assumptions."
-                  text="IMMA HIRED was founded by Imma, a foreign expat in China, who was inspired by the struggles he faced—and saw others facing—in finding opportunities in a new land. After experiencing the frustration of navigating China&apos;s job market as an international talent, Imma wanted to create a platform that would give foreign professionals like Lisa, an MBA student, a place to thrive"
+                  title = {target.story_1}
+                  insight = {target.story_1_insight} 
+                  text= {target.story_1_p}
                 />
               </ParallaxLayer>
 
               <ParallaxLayer sticky={{ start: isMobile ? 6.1 : 5.6, end: isMobile ? 6.1 : 5.6 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="02"
-                  insight="Where opportunity meets the right talent without friction"
-                  title="The Bridge"
-                  text="IMMA HIRED is more than just a job portal; it&apos;s a bridge between foreign talent and employers who are searching for skilled candidates. Lisa uploaded her resume, and Mr. Zhang, an employer, discovered her profile—both achieving their goals."
+                  insight= {target.story_2_insight}
+                  title= {target.story_2}
+                  text= {target.story_2_p}
                 />
               </ParallaxLayer>
 
               <ParallaxLayer sticky={{ start: isMobile ? 6.9 : 6.4, end: isMobile ? 6.9 : 6.4 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="03"
-                  title="The Belief"
-                  insight="Success isn&apos;t luck. It&apos;s access."
-                  text="Driven by the belief that everyone deserves a chance to succeed, IMMA HIRED helps talented individuals find meaningful careers and build a future in China, one success story at a time."
+                  title= {target.story_3}
+                  insight= {target.story_3_insight}
+                  text= {target.story_3_p}
                 />
 
                   <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:-translate-y-10 gap-8 mt-20 sm:py-16 sm:hidden">
                       {[
-                        { value: "100+", label: "Daily Active Users" },
-                        { value: "5K+", label: "Open Job Positions" },
-                        { value: "10K+", label: "Success Stories Shared" },
+                        { value: "100+", label: target.metrics_1},
+                        { value: "5K+", label: target.metrics_2 },
+                        { value: "10K+", label: target.metrics_3 },
                       ].map((item, i) => (
                         <div
                           key={i}
@@ -432,11 +433,11 @@ const [language, setLanguage] = languageContext;
 
               {/* Industries + teams */}
               <ParallaxLayer offset={ isMobile ? 8 : 7.5} speed={0}>
-                <Industries />
+                <Industries target = { target } />
 
-                <Team />
+                <Team target={target} />
                 
-                <HowItWorks />
+                <HowItWorks target={target} />
                 
                 <section className="py-20">
                     <Testimonial target={target} />

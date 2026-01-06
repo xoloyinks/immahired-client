@@ -64,10 +64,10 @@ export default function Footer() {
                     <Link href={userData && userData.data.type === 'talent' ? '/candidate' : '/login'}>{target.footer_one_link2}</Link>
                 </span>
                 <span className="flex flex-col gap-3">
-                    <Link href='/#team'>Our Team</Link>
+                    <Link href='/#team'>{target.our_team}</Link>
                 </span>
                 <span className="flex flex-col gap-3">
-                    <Link href='/about#contact'>Contact</Link>
+                    <Link href='/about#contact'>{target.contact_1}</Link>
                 </span>
             </div>
             <div className="space-y-5 w-full sm:w-[16%]">
@@ -76,7 +76,7 @@ export default function Footer() {
                     <Link href={userData && userData.data.type === 'employer' ? '/employer' : '/login'}>{target.footer_two_link2}</Link>
                     <Link href={userData && userData.data.type === 'employer' ? '/employer/submit-job' : '/login'}>{target.footer_two_link3}</Link>
                     <span className="flex flex-col gap-3">
-                    <Link href='/jobs'>Find Talents</Link>
+                    <Link href='/jobs'>{target.find_talents}</Link>
                 </span>
                 </span>
             </div>
@@ -86,9 +86,9 @@ export default function Footer() {
                     <Link href='/about'>{target.footer_three_title_1}</Link>
                     <Link href='/terms'>{target.footer_three_link1}</Link>
                     <Link href='/package'>{target.footer_three_link2}</Link>
-                    <Link href='/#testimonials'>Testimonials</Link>
-                    <Link href='/#team'>Our team</Link>
-                    <Link href='/about#contact'>Contact</Link>
+                    <Link href='/#testimonials'>{target.testimonials}</Link>
+                    <Link href='/#team'>{target.our_team}</Link>
+                    <Link href='/about#contact'>{target.contact_1}</Link>
 
                 </span>
             </div>

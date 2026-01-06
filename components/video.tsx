@@ -4,7 +4,7 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { PiCheckCircleFill } from 'react-icons/pi'
 
 
-export default function Video() {
+export default function Video({ target }: any) {
     const videoRef = useRef<HTMLVideoElement>(null)
       const [isPlaying, setIsPlaying] = useState(false)
     
@@ -100,7 +100,7 @@ export default function Video() {
 
                         {/* LABEL */}
                         <span className="mt-4 text-white text-sm opacity-0 font-bold tracking-wide group-hover:opacity-100 transition-opacity">
-                          {isPlaying ? "Pause Video" : "Watch Video"}
+                          {isPlaying ? target.pause_vid : target.watch_vid}
                         </span>
                       </button>
                     </div>
@@ -114,16 +114,15 @@ export default function Video() {
                     className="w-full sm:w-[45%] max-w-2xl max-sm:px-2"
                   >
                     <p className="text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
-                      About Us
+                      {target.about_us}
                     </p>
 
                     <h2 className="text-3xl sm:text-5xl font-semibold mb-6">
-                      The Leading Hospitality <br /> Staffing Platform
+                      {target.about_us_1}
                     </h2>
 
                     <p className="text-gray-600 mb-6">
-                      We connect hospitality businesses with exceptional professionals
-                      while enabling seamless workforce scaling.
+                      {target.about_us_2}
                     </p>
 
                     <ul className="space-y-4">
@@ -131,13 +130,13 @@ export default function Video() {
                         <span className="text-main text-2xl">
                             <PiCheckCircleFill />
                         </span>
-                        This helps businesses maintain service excellence
+                        {target.about_us_3}
                       </li>
                       <li className="flex gap-3 items-center">
                         <span className="text-main text-2xl">
                             <PiCheckCircleFill />
                         </span>
-                        This scalability allows businesses to adjust staffing
+                        {target.about_us_4}
                       </li>
                     </ul>
                   </motion.div>
