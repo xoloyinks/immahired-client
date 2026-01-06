@@ -288,3 +288,57 @@ html{
   margin-bottom: 8px;
 } */
 
+
+.floating-shape {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.shape-1 {
+  animation-delay: 0s;
+}
+.shape-2 {
+  animation-delay: 2s;
+}
+.shape-3 {
+  animation-delay: 4s;
+}
+.shape-4 {
+  animation-delay: 1s;
+}
+.shape-5 {
+  animation-delay: 3s;
+}
+.shape-6 {
+  animation-delay: 5s;
+}
+.shape-7 {
+  animation-delay: 2.5s;
+}
+.shape-8 {
+  animation-delay: 4.5s;
+}
+.shape-9 {
+  animation-delay: 1.5s;
+}
+.shape-10 {
+  animation-delay: 3.5s;
+}
+@keyframes nav {
+  from {
+    width: 0;
+    right: 0;
+  }
+  to {
+    width: 70%;
+    right: 0;
+  }
+}

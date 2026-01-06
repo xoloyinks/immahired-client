@@ -66,7 +66,7 @@ export default function Video({ target }: any) {
                             [0, 1, 2, 3, 4].map((i) => (
                               <span
                                 key={i}
-                                className="absolute rounded-full border border-dashed animate-ping"
+                                className="absolute rounded-full border-2 border-dashed animate-ping"
                                 style={{
                                   width: 50 + i * 5,
                                   height: 50 + i * 5,

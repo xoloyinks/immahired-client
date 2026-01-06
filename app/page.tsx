@@ -86,7 +86,7 @@ const [language, setLanguage] = languageContext;
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
               {/* Banner */}
-              <ParallaxLayer offset={0} speed={0.2}>
+              <ParallaxLayer offset={0} speed={0}>
                 <div  
                   className="bg-cover bg-center bg-no-repeat w-screen opacity- h-screen flex flex-col justify-center items-center" 
                   style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
@@ -94,21 +94,31 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
-              {/* marguee */}
               <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:bottom-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
-                  <div className="marquee-track">
-                    <span className="flex gap-20">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle className="max-sm:hidden" /></span>)} 
-                    </span>
-                    <span className="flex gap-10">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i}  <FaRegDotCircle className="max-sm:hidden" /></span>)}
-                    </span>
-                  </div>
+                {/* bacground floating shapes */}
+                <div className="absolute top-0 left-52 w-full h-full pointer-events-none overflow-hidden">
+                  <div className="floating-shape shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
+                  <div className="floating-shape shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
+                  <div className="floating-shape shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
+                </div>
+
+                {/* bacground floating shapes */}
+                <div className="absolute bottom-0 right-0 animate-pulse w-fit h-full pointer-events-none overflow-hidden">
+                  <div className="shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
+                  <div className="shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
+                  <div className="shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
+                </div>
+
+                {/* hovering shapes */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none overflow-hidden">
+                  <div className="shape-1 bg-main/10 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px]"></div>
+                  <div className="shape-2 bg-abstract/10 rounded-full w-60 h-60 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]"></div>
+                  <div className="shape-3 bg-black/5 rounded-full w-48 h-48 sm:w-64 sm:h-64 lg:w-[300px] lg:h-[300px]"></div>
                 </div>
               </ParallaxLayer>
+             
 
-              <ParallaxLayer offset={0} speed={0.5} className="text-center flex items-center flex-col justify-center gap-8">
+              <ParallaxLayer offset={0} speed={0} className="text-center flex items-center flex-col backdrop-blur-2xl justify-center gap-8">
                 <motion.p 
                   initial={{ opacity: 0, y: 100}}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -197,6 +207,20 @@ const [language, setLanguage] = languageContext;
                     <span>{target.hire_talents}</span>
                   </button>
                 </motion.div>
+              </ParallaxLayer>
+
+               {/* marguee */}
+              <ParallaxLayer offset={0} speed={0} className="flex items-end">
+                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:bottom-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
+                  <div className="marquee-track">
+                    <span className="flex gap-20">
+                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle className="max-sm:hidden" /></span>)} 
+                    </span>
+                    <span className="flex gap-10">
+                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i}  <FaRegDotCircle className="max-sm:hidden" /></span>)}
+                    </span>
+                  </div>
+                </div>
               </ParallaxLayer>
 
               <ParallaxLayer offset={1} speed={0} className="px-3 py-20 sm:px-20">
