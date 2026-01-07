@@ -1,273 +1,218 @@
-"use client"
+"use client";
+
 import Image from "next/image";
-import pageLanguage from "@/app/page.json"
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Cookies from 'js-cookie'
-import { FaChartLine, FaCode, FaRegDotCircle, FaSearch, FaUsers } from "react-icons/fa";
-import { useContext, useState, useRef, useEffect } from "react";
-import { LanguageData } from "./context";
-import Testimonial from "@/components/testimonials";
+import pageLanguage from "@/app/page.json";
+import Cookies from "js-cookie";
+import { useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
+import { useMediaQuery } from "react-responsive";
+
 import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
-import { useGetJobsQuery } from "./api/general";
-import { UserData } from "./tokenContext";
-import { toast, ToastContainer } from "react-toastify";
-import { FaArrowTrendUp, FaToolbox } from "react-icons/fa6";
-import { motion, AnimatePresence } from "framer-motion";
-import Typewriter from 'typewriter-effect';
-import { GrUserWorker } from "react-icons/gr";
-import { BsBuildingsFill } from "react-icons/bs";
-import { useMediaQuery } from "react-responsive";
+import Video from "@/components/video";
+import WhyUs from "@/components/whyUs";
+import Industries from "@/components/industries";
 import Team from "@/components/team";
 import HowItWorks from "@/components/howItWorks";
-import Industries from "@/components/industries";
-import Video from "@/components/video";
+import Testimonial from "@/components/testimonials";
 import StoryPoint from "@/components/storyPoint";
-import WhyUs from "@/components/whyUs";
 
-type LanguageContextType = [string, (language: string) => void];
+import { LanguageData } from "./context";
+import { UserData } from "./tokenContext";
+import { useGetJobsQuery } from "./api/general";
+
+import { FaRegDotCircle } from "react-icons/fa";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { GrUserWorker } from "react-icons/gr";
+import { BsBuildingsFill } from "react-icons/bs";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
-  const { data } = useGetJobsQuery(null);
-  const parallaxRef = useRef<any>(null);
+  useGetJobsQuery(null);
+
   const [isScrolled, setIsScrolled] = useState(false);
-  const [ active, setActive ] = useContext(UserData)
-  const token = Cookies.get('token');
-    var tokenData: any;
-    if(token){
-      tokenData = JSON.parse(token);
+  const [active] = useContext(UserData);
+  const languageContext = useContext(LanguageData);
+  const isMobile = useMediaQuery({ maxWidth: 640 });
+
+  if (!languageContext) {
+    throw new Error("LanguageData context missing");
   }
 
- const languageContext = useContext(LanguageData);
+  const [language] = languageContext;
+  const jsonData: any = pageLanguage;
+  const target = jsonData[language];
 
-if (!languageContext) {
-  throw new Error("LanguageData context is not provided!");
-}
-const jsonData: any = pageLanguage;
+  const token = Cookies.get("token");
+  const tokenData = token ? JSON.parse(token) : null;
 
-const isMobile = useMediaQuery({ maxWidth: 640 })
-
-useEffect(() => {
-  const container = parallaxRef.current?.container?.current;
-  if (!container) return;
-
-  const onScroll = () => {
-    setIsScrolled(container.scrollTop > 40);
-  };
-
-  container.addEventListener("scroll", onScroll);
-  console.log(isScrolled)
-  return () => container.removeEventListener("scroll", onScroll);
-}, []);
-
-const [language, setLanguage] = languageContext;
-  const target: any = jsonData[language]
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const industriesMarquee = [
-    target.industry_1, target.industry_2, target.industry_3, target.industry_4, target.industry_5,
-    target.industry_6, target.industry_7, target.industry_8, target.industry_9
-  ]
+    target.industry_1,
+    target.industry_2,
+    target.industry_3,
+    target.industry_4,
+    target.industry_5,
+    target.industry_6,
+    target.industry_7,
+    target.industry_8,
+    target.industry_9,
+  ];
 
   const handleHire = () => {
-    // if logged in and admin/employer
-    if(active && (tokenData.data.type === 'employer' || tokenData.data.type === 'admin')){
-        window.location.href = ('/candidates');
-    }else{
-        window.location.href = ('/login')
+    if (active && ["employer", "admin"].includes(tokenData?.data?.type)) {
+      window.location.href = "/candidates";
+    } else {
+      window.location.href = "/login";
     }
-  }
+  };
 
   return (
-        <section className="w-full">
-        <Navbar isScrolled={isScrolled} />
-        <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 18 : 12.7} 
-              style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
-              className="w-full bg-cover bg-center bg-no-repeat relative"
+    <main 
+      className="w-full overflow-x-hidden bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
+    >
+      <Navbar isScrolled={isScrolled} />
+      <ToastContainer />
+
+      {/* ================= HERO ================= */}
+      <section
+        className="relative min-h-screen flex flex-col items-center overflow-hidden justify-center text-center bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')",
+        }}
+      >
+
+        <div className="absolute w-screen h-screen top-0 z-10 overflow-hidden"> 
+          {/* floating shapes */}
+          <div className="absolute top-0 left-52 w-full h-full pointer-events-none overflow-hidden">
+              <div className="floating-shape shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
+              <div className="floating-shape shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
+              <div className="floating-shape shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
+            </div>
+
+            {/* bacground floating shapes */}
+            <div className="absolute bottom-0 right-0 animate-pulse w-fit h-full pointer-events-none overflow-hidden">
+              <div className="shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
+              <div className="shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
+              <div className="shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
+            </div>
+
+            {/* hovering shapes */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none overflow-hidden">
+              <div className="shape-1 bg-main/10 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px]"></div>
+              <div className="shape-2 bg-abstract/10 rounded-full w-60 h-60 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]"></div>
+              <div className="shape-3 bg-black/5 rounded-full w-48 h-48 sm:w-64 sm:h-64 lg:w-[300px] lg:h-[300px]"></div>
+            </div>
+        </div>
+
+        <div className="absolute w-screen h-screen backdrop-blur-2xl z-20 flex items-center justify-center flex-col">
+            <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 90 }}
+            className="font-black text-6xl sm:max-w-[70%] max-sm:text-3xl"
+          >
+            {target.h1}
+          </motion.h1>
+
+          <div className="text-6xl max-sm:text-3xl text-black font-black">
+            <Typewriter
+              options={{
+                strings: [target.h1_add, target.h1_add2],
+                autoStart: true,
+                loop: true,
+                cursor: "",
+              }}
+            />
+          </div>
+
+          <p className="mt-6 max-w-3xl text-xl max-sm:text-sm font-semibold px-6">
+            {target.p_banner}
+          </p>
+
+          <div className="mt-10 flex gap-4 max-sm:flex-col">
+            <button
+              onClick={() => (window.location.href = "/jobs")}
+              className="btn-sweep bg-white px-10 py-5 rounded-full font-semibold flex items-center gap-2"
             >
-              {/* Banner */}
-              <ParallaxLayer offset={0} speed={0}>
-                <div  
-                  className="bg-cover bg-center bg-no-repeat w-screen opacity- h-screen flex flex-col justify-center items-center" 
-                  style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
-                >
-                </div>
-              </ParallaxLayer>
+              {target.find_jobs}
+              <FaArrowTrendUp />
+            </button>
 
-              <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                {/* bacground floating shapes */}
-                <div className="absolute top-0 left-52 w-full h-full pointer-events-none overflow-hidden">
-                  <div className="floating-shape shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
-                  <div className="floating-shape shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
-                  <div className="floating-shape shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
-                </div>
+            <button
+              onClick={handleHire}
+              className="btn-sweep bg-main text-white px-12 py-5 rounded-full font-semibold"
+            >
+              {target.hire_talents}
+            </button>
+          </div>
 
-                {/* bacground floating shapes */}
-                <div className="absolute bottom-0 right-0 animate-pulse w-fit h-full pointer-events-none overflow-hidden">
-                  <div className="shape-1 bg-main/20 rounded-full w-40 h-40 sm:w-60 sm:h-60 lg:w-72 lg:h-72"></div>
-                  <div className="shape-2 bg-abstract/20 rounded-full w-32 h-32 sm:w-48 sm:h-48 lg:w-60 lg:h-60"></div>
-                  <div className="shape-3 bg-black/10 rounded-full w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48"></div>
-                </div>
+          <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute bottom-0 sm:bottom-10 w-full z-40">
+            <div className="marquee-track text-white flex gap-20 whitespace-nowrap">
+              {industriesMarquee.map((i, idx) => (
+                <span key={idx} className="flex gap-6 items-center">
+                  {i}
+                  <FaRegDotCircle />
+                </span>
+              ))}
+            </div>
+          </section>
+        </div>
+        
 
-                {/* hovering shapes */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none overflow-hidden">
-                  <div className="shape-1 bg-main/10 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px]"></div>
-                  <div className="shape-2 bg-abstract/10 rounded-full w-60 h-60 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]"></div>
-                  <div className="shape-3 bg-black/5 rounded-full w-48 h-48 sm:w-64 sm:h-64 lg:w-[300px] lg:h-[300px]"></div>
-                </div>
-              </ParallaxLayer>
-             
+        
+      </section>
 
-              <ParallaxLayer offset={0} speed={0} className="text-center flex items-center flex-col backdrop-blur-2xl justify-center gap-8">
-                <motion.p 
-                  initial={{ opacity: 0, y: 100}}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 90,
-                    damping: 18,
-                    delay: 0.3
-                  }}
-                  viewport={{ once: true }}
-                  className=" sm:max-w-[60%] font-black max-sm:px-10">
-                    <span className="text-6xl max-sm:text-2xl">{target.h1}</span>
-                    <div className="text-black text-6xl max-sm:text-2xl">
-                      <Typewriter
-                        options = {{
-                          strings: [target.h1_add, target.h1_add2],
-                          autoStart: true,
-                          loop: true,
-                          cursor: ""
-                        }}
-                      />
-                    </div>
-                  </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 90,
-                    damping: 18,
-                    delay: 0.5
-                  }}
-                className="text-xl font-bold max-sm:text-sm max-sm:px-10 sm:max-w-[55%]">
-                  {target.p_banner}
-                </motion.p>
+      {/* ================= VIDEO ================= */}
+      <section className="pt-24 sm:py-24 px-5 sm:px-20 bg-white">
+        <Video target={target} />
+      </section>
 
-                <motion.div 
-                  initial={{ opacity: 0, y: 100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 90,
-                    damping: 18,
-                    delay: 0.8
-                  }}
-                  className="flex sm:flex-row flex-col max-sm:justify-center max-sm:items-center gap-4">
-                  <button
-                    onClick={() => window.location.href = "/jobs"}
-                    className="
-                      btn-sweep
-                      bg-white
-                      relative
-                      sm:px-8 px-10 py-5
-                      w-fit
-                      rounded-full
-                      text-sm font-semibold tracking-wide
-                      border border-black/20
-                      transition-all duration-300 ease-out
-                      hover:border-black
-                      hover:shadow-lg
-                      hover:-translate-y-[1px]
-                      flex gap-2 items-center justify-center
-                    "
-                  >
-                    <span>{target.find_jobs}</span>
-                    <FaArrowTrendUp className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+      {/* ================= WHY US ================= */}
+      <section className=" relative min-h-screen max-sm:h-fit flex justify-center items-centeroverflow-hidden">
+        <div className="absolute w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 bottom-20 sm:-bottom-52 bg-main/20" />
+        <div className="w-full sm:py-24 min-h-screen backdrop-blur-3xl">
+          <WhyUs target={target} />   
+        </div>
+        
+      </section>
 
-                  <button
-                    onClick={handleHire}
-                    className="
-                      btn-sweep
-                      relative
-                      sm:px-8 px-16 py-5
-                      rounded-full
-                      w-fit
-                      text-sm font-semibold tracking-wide
-                      bg-main text-white
-                      transition-all duration-300 ease-out
-                      hover:shadow-lg
-                      hover:-translate-y-[1px]
-                    "
-                  >
-                    <span>{target.hire_talents}</span>
-                  </button>
-                </motion.div>
-              </ParallaxLayer>
+      {/* ================= RESEARCH ================= */}
+      <section className="relative h-[22vh] sm:min-h-[65vh]">
+          <Image
+            src="/images/reg.jpg"
+            alt="research"
+            fill
+            className="object-cover"
+          />
+        <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-main sm:text-white px-10">
+          <p className="text-2xl sm:text-5xl font-bold max-w-4xl max-sm:mb-5">
+            {target.research}
+          </p>
+        </div>
+      </section>
 
-               {/* marguee */}
-              <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:bottom-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
-                  <div className="marquee-track">
-                    <span className="flex gap-20">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle className="max-sm:hidden" /></span>)} 
-                    </span>
-                    <span className="flex gap-10">
-                      {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i}  <FaRegDotCircle className="max-sm:hidden" /></span>)}
-                    </span>
-                  </div>
-                </div>
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={1} speed={0} className="px-3 py-20 sm:px-20">
-                  <Video target={target} />
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={2} speed={0} className="relative max-sm:py-12">
-                <WhyUs target={target} />
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={isMobile ? 3.4 : 3} speed={0} className="max-sm:hidden">
-                    <div className="sm:h-[65vh] relative w-full">
-                        <Image 
-                          src={"/images/reg.jpg"}
-                          alt="Researchers"
-                          fill
-                          className="object-cover"
-                        />
-                    </div>
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={isMobile ? 3.4 : 3} speed={0}>
-                <motion.div
-                  className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center font-bold text-main sm:text-white">
-                    <motion.p 
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="sm:w-[55%] flex mx-auto justify-center"
-                    >
-                      {target.research}
-                    </motion.p>
-                </motion.div>
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={isMobile ? 3.99 : 3.5} speed={isMobile ? 0.3 : 0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
-                  <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
-                    <GrUserWorker />
-                  </p>
-                  <h2 className="text-center font-black text-xl sm:text-4xl">{target.overseas_talent}</h2>
-                  <p className="text-center text-sm sm:w-[90%] mx-auto">
-                    {target.overseas_talent_p}
-                  </p>
-                  <button 
-                    onClick={() => window.location.href = "/jobs"}
-                    className="
+      {/* ================= CARDS ================= */}
+      <section className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+            <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
+              <GrUserWorker />
+            </p>
+            <h2 className="text-center font-black text-xl sm:text-4xl">{target.overseas_talent}</h2>
+            <p className="text-center text-sm sm:w-[90%] mx-auto">
+              {target.overseas_talent_p}
+            </p>
+            <button
+              onClick={() => window.location.href = "/jobs"}
+              className="
                       flex mx-auto items-center justify-center
                       w-fit
                       btn-sweep
@@ -279,28 +224,27 @@ const [language, setLanguage] = languageContext;
                       transition-all duration-300 ease-out
                       hover:shadow-lg
                       hover:-translate-y-[1px]">
-                    {target.find_jobs}
-                  </button>
-                  <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
-                    <Image
-                      src={"/images/OJXL4E0.jpg"}
-                      alt="Image"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+              {target.find_jobs}
+            </button>
+            <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+              <Image
+                src={"/images/OJXL4E0.jpg"}
+                alt="Image"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-                </div>
-
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-28 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
-                  <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
-                    <BsBuildingsFill />
-                  </p>
-                  <h2 className="text-center font-black text-xl sm:text-4xl">{target.for_organizations}</h2>
-                  <p className="text-center text-sm sm:w-[90%] mx-auto">{target.for_organizations_p}</p>
-                  <button 
-                    onClick={handleHire}
-                    className="
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+            <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
+              <BsBuildingsFill />
+            </p>
+            <h2 className="text-center font-black text-xl sm:text-4xl">{target.for_organizations}</h2>
+            <p className="text-center text-sm sm:w-[90%] mx-auto">{target.for_organizations_p}</p>
+            <button
+              onClick={handleHire}
+              className="
                       flex mx-auto items-center justify-center
                       w-fit
                       btn-sweep
@@ -313,165 +257,104 @@ const [language, setLanguage] = languageContext;
                       hover:shadow-lg
                       hover:-translate-y-[1px]
                   ">{target.hire_talents}</button>
-                  <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
-                    <Image 
-                      src={"/images/3525444.jpg"}
-                      alt="Image"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </ParallaxLayer>
+            <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+              <Image
+                src={"/images/3525444.jpg"}
+                alt="Image"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-              <ParallaxLayer offset={ isMobile ? 4.59 : 4.1} className="max-sm:hidden">
-                  <div className="relative grid grid-cols-1 sm:grid-cols-3 -translate-y-20 sm:gap-8 mt-20 sm:py-16">
-                      {[
-                        { value: "100+", label: target.metrics_1 },
-                        { value: "5K+", label: target.metrics_2 },
-                        { value: "10K+", label: target.metrics_3 },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="
+      </section>
+
+      <section className="sm:mb-20 mb-10">
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 sm:py-16">
+            {[
+              { value: "100+", label: target.metrics_1 },
+              { value: "5K+", label: target.metrics_2 },
+              { value: "10K+", label: target.metrics_3 },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="
                             group
                             text-center
                             flex flex-col items-center
                             gap-2
                           "
-                        >
-                          <h1
-                            className="
-                              text-8xl font-black
+              >
+                <h1
+                  className="
+                              sm:text-8xl text-4xl font-black
                               tracking-tight
                               bg-clip-text text-transparent
                               bg-gradient-to-br from-main to-black
                               transition-transform duration-300
                               group-hover:-translate-y-1
                             "
-                          >
-                            {item.value}
-                          </h1>
-                          <span className="text-sm uppercase tracking-widest text-black/60">
-                            {item.label}
-                          </span>
-                      </div>
-                    ))}
-                  </div>
-              </ParallaxLayer>
-
-              {/* Story */}
-              <ParallaxLayer
-                sticky={{ start: isMobile ? 5 : 4.5, end: isMobile ? 7 : 6.5 }}
-                className="relative opacity-90"
-              >
-                <Image
-                        src={'/images/pexels-jopwell-2422280.jpg'}
-                        alt={`background image`}
-                        fill
-                        className="object-cover"
-                      /> 
-              </ParallaxLayer>
-
-              <ParallaxLayer
-                id="story"
-                sticky={{ start: isMobile ? 5 : 4.5, end: isMobile ? 7 : 6.5 }}
-                className="flex sm:items-center px-5 py-28 sm:p-40 backdrop-blur-2xl bg-black/60"
-              >
-                <motion.h2
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 90,
-                    damping: 18,
-                    delay: 0.5,
-                  }}
-                  viewport={{ once: true }}
-                  className="text-4xl sm:text-9xl text-gray-300 font-extrabold sm:leading-[90px] sm:w-[50%]"
                 >
-                  <span className="text-5xl sm:text-7xl">{target.our_story}</span>
-                </motion.h2>
-              </ParallaxLayer>
+                  {item.value}
+                </h1>
+                <span className="text-sm uppercase tracking-widest text-black/60">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+      </section>
 
-              <ParallaxLayer sticky={{ start: isMobile ? 5.3 : 4.8, end: isMobile ? 5.3 : 4.8 }} speed={0.7} className="z-20 pointer-events-auto">
-                <StoryPoint
-                  index="01"
-                  title = {target.story_1}
-                  insight = {target.story_1_insight} 
-                  text= {target.story_1_p}
-                />
-              </ParallaxLayer>
+      {/* ================= STICKY STORY ================= */}
+      <section id="story" className="w-screen h-[170vh] sm:h-screen relative">
+        <div className="absolute top-0 h-full w-screen">
+          <Image
+            src="/images/pexels-jopwell-2422280.jpg"
+            alt="story bg"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-              <ParallaxLayer sticky={{ start: isMobile ? 6.1 : 5.6, end: isMobile ? 6.1 : 5.6 }} speed={0.7} className="z-20 pointer-events-auto">
-                <StoryPoint
-                  index="02"
-                  insight= {target.story_2_insight}
-                  title= {target.story_2}
-                  text= {target.story_2_p}
-                />
-              </ParallaxLayer>
+        <div className="absolute z-40 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-16 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
+            <h2 className="text-4xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
+              {target.our_story}
+            </h2>
+          <div className="flex sm:flex-row gap-10 flex-col justify-evenly ">
+            <StoryPoint
+              index="01"
+              title={target.story_1}
+              insight={target.story_1_insight}
+              text={target.story_1_p}
+            />
+            <StoryPoint
+              index="02"
+              title={target.story_2}
+              insight={target.story_2_insight}
+              text={target.story_2_p}
+            />
+            <StoryPoint
+              index="03"
+              title={target.story_3}
+              insight={target.story_3_insight}
+              text={target.story_3_p}
+            />
+          </div>
+        </div>
+      </section>
 
-              <ParallaxLayer sticky={{ start: isMobile ? 6.9 : 6.4, end: isMobile ? 6.9 : 6.4 }} speed={0.7} className="z-20 pointer-events-auto">
-                <StoryPoint
-                  index="03"
-                  title= {target.story_3}
-                  insight= {target.story_3_insight}
-                  text= {target.story_3_p}
-                />
+      
 
-                  <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:-translate-y-10 gap-8 mt-20 sm:py-16 sm:hidden">
-                      {[
-                        { value: "100+", label: target.metrics_1},
-                        { value: "5K+", label: target.metrics_2 },
-                        { value: "10K+", label: target.metrics_3 },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="
-                            group
-                            text-center
-                            flex flex-col items-center
-                            gap-2
-                          "
-                        >
-                          <h1
-                            className="
-                              text-4xl sm:text-5xl font-black
-                              tracking-tight
-                              bg-clip-text text-transparent
-                              bg-gradient-to-br from-main to-white
-                              transition-transform duration-300
-                              group-hover:-translate-y-1
-                            "
-                          >
-                            {item.value}
-                          </h1>
-                          <span className="text-sm uppercase tracking-widest text-white">
-                            {item.label}
-                          </span>
-                      </div>
-                    ))}
-                  </div>
-              </ParallaxLayer>
+      {/* ================= INDUSTRIES ================= */}
+      <Industries target={target} />
+      <Team target={target} />
+      <HowItWorks target={target} />
 
-              {/* Industries + teams */}
-              <ParallaxLayer offset={ isMobile ? 8 : 7.5} speed={0}>
-                <Industries target = { target } />
+      <section className="py-20">
+        <Testimonial target={target} />
+      </section>
 
-                <Team target={target} />
-                
-                <HowItWorks target={target} />
-                
-                <section className="py-20">
-                    <Testimonial target={target} />
-                </section>
-              </ParallaxLayer>
-
-              <ParallaxLayer offset={isMobile ? 17 : 11.7} speed={0} className="flex items-end">
-                    <Footer />
-              </ParallaxLayer>
-            </Parallax>
-        </section>
+      <Footer />
+    </main>
   );
 }

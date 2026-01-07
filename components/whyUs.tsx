@@ -47,20 +47,9 @@ export default function WhyUs({ target }: any) {
       ]
     
   return (
-    <>
-        {/* Background Circle with smooth animation */}
+    <>  
                         <motion.div
-                          className="absolute w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] rounded-full right-20 sm:-bottom-52 bg-main/20"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 1.2, ease: "easeOut" }}
-                        />
-        
-                        <motion.div
-                          className="w-full h-[125vh] sm:h-full backdrop-blur-3xl py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 1.5 }}
+                          className="w-full h-[125vh] sm:h-full  py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
                         >
                           <motion.div
                             className="text-3xl sm:text-5xl"

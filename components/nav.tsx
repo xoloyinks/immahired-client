@@ -219,7 +219,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
                       showSelectedLabel={true}
                       selectButtonClassName="menu-flags-button"
                       selectedSize={10}
-                      optionsSize={14}
+                      optionsSize={10}
               />
 
           </div>

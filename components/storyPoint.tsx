@@ -20,10 +20,8 @@ const StoryPoint = ({
     className="
       group
       relative
-      sm:ml-[45vw] m-5
-      sm:mt-[20vh]
-      sm:max-w-xl
-      min-h-[400px]
+      sm:w-[32%] w-full
+      h-fit sm:h-[450px]
       rounded-2xl
       perspective-[1200px]
     "
@@ -57,7 +55,7 @@ const StoryPoint = ({
       </div>
       
       <h3 className="text-2xl font-bold mt-4">{title}</h3>
-      <p className="text-sm sm:text-base text-black/80 mt-4 leading-relaxed">
+      <p className=" text-black/80 text-sm mt-4 leading-relaxed">
         {text}
       </p>
     </div>

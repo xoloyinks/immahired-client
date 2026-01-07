@@ -117,28 +117,16 @@ export default function Video({ target }: any) {
                       {target.about_us}
                     </p>
 
-                    <h2 className="text-3xl sm:text-5xl font-semibold mb-6">
+                    <h2 className="text-3xl sm:text-2xl font-semibold mb-6">
                       {target.about_us_1}
                     </h2>
 
                     <p className="text-gray-600 mb-6">
                       {target.about_us_2}
                     </p>
-
-                    <ul className="space-y-4">
-                      <li className="flex gap-3 items-center">
-                        <span className="text-main text-2xl">
-                            <PiCheckCircleFill />
-                        </span>
-                        {target.about_us_3}
-                      </li>
-                      <li className="flex gap-3 items-center">
-                        <span className="text-main text-2xl">
-                            <PiCheckCircleFill />
-                        </span>
-                        {target.about_us_4}
-                      </li>
-                    </ul>
+                    <p className="text-gray-600 mb-6">
+                      {target.about_us_3}
+                    </p>
                   </motion.div>
                 </div>
   )

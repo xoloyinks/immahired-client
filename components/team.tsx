@@ -6,7 +6,7 @@ export default function Team({target}: any) {
   return (
     <section className="sm:py-12" id="team">
                   <h2 className="text-center p-10 sm:mb-20">
-                    <span className="block text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
+                    <span className="block text-[12px] sm:text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
                       {target.meet_the_people}
                     </span>
 
@@ -17,50 +17,74 @@ export default function Team({target}: any) {
 
 
 
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay:0.5 }}
-                    className="flex sm:flex-row max-sm:justify-center max-sm:gap-8 flex-col justify-evenly">
-                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                    className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-10 px-6 sm:px-0"
+                  >
+                    {/* CARD */}
+                    {[
+                      {
+                        name: "Imma Jing",
+                        role: target.ceo,
+                        image: "/images/img-2.png",
+                      },
+                      {
+                        name: "Maggie Luo",
+                        role: target.recruitment_specialist,
+                        image: "/images/img3.png",
+                      },
+                      {
+                        name: "Chen Lanping",
+                        role: target.sales_marketing_specialist,
+                        image: "/images/img1.png",
+                      },
+                    ].map((member, i) => (
+                      <motion.div
+                        key={i}
+                        whileHover={{ y: -6 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                        className="
+                          group
+                          rounded-2xl
+                          transition-shadow
+                          text-center
+                          p-6
+                          flex
+                          flex-col
+                          items-center
+                        "
+                      >
+                        {/* Image */}
+                        <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-full overflow-hidden border border-black/10 shadow-lg">
                           <Image
-                            src={'/images/img-2.png'}
+                            src={member.image}
+                            alt={member.name}
                             fill
-                            alt="Profile image"
-                            className="object-bottom"
+                            className="
+                              object-cover
+                              object-top
+                              transition-transform
+                              duration-500
+                              group-hover:scale-105
+                            "
                           />
                         </div>
-                        <p className="text-xl font-bold ">Imma Jing</p>
-                        <p>{target.ceo}</p>
-                      </div>
 
-                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
-                          <Image
-                            src={'/images/img3.png'}
-                            fill
-                            alt="Profile image"
-                            className="object-bottom"
-                          />
-                        </div>
-                        <p className="text-xl font-bold ">Maggie luo</p>
-                        <p>{target.recruitment_specialist}</p>
-                      </div>
+                        {/* Text */}
+                        <h3 className="mt-6 text-xl font-extrabold tracking-tight">
+                          {member.name}
+                        </h3>
 
-                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
-                          <Image
-                            src={'/images/img1.png'}
-                            fill
-                            alt="Profile image"
-                            className="object-bottom"
-                          />
-                        </div>
-                        <p className="text-xl font-bold ">Chen Lanping</p>
-                        <p>{target.sales_marketing_specialist}</p>
-                      </div>
+                        <p className="mt-1 text-sm uppercase tracking-widest text-black/60">
+                          {member.role}
+                        </p>
+                      </motion.div>
+                    ))}
                   </motion.div>
+
                 </section>
   )
 }

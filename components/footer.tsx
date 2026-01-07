@@ -77,6 +77,8 @@ export default function Footer() {
                     <Link href={userData && userData.data.type === 'employer' ? '/employer/submit-job' : '/login'}>{target.footer_two_link3}</Link>
                     <span className="flex flex-col gap-3">
                     <Link href='/jobs'>{target.find_talents}</Link>
+                    <Link href='/#team'>{target.our_team}</Link>
+                    <Link href='/about#contact'>{target.contact_1}</Link>
                 </span>
                 </span>
             </div>
@@ -88,7 +90,7 @@ export default function Footer() {
                     <Link href='/package'>{target.footer_three_link2}</Link>
                     <Link href='/#testimonials'>{target.testimonials}</Link>
                     <Link href='/#team'>{target.our_team}</Link>
-                    <Link href='/about#contact'>{target.contact_1}</Link>
+                    {/* <Link href='/about#contact'>{target.contact_1}</Link> */}
 
                 </span>
             </div>

@@ -165,10 +165,9 @@
       "metrics_2": "Open Job Positions",
       "metrics_3": "Success Stories Shared",
       "about_us": "About Us",
-      "about_us_1": "The Leading Hospitality Staffing Platform",
-      "about_us_2": "We connect hospitality businesses with exceptional professionals while  enabling seamless workforce scaling.",
-      "about_us_3": "This helps businesses maintain service excellence",
-      "about_us_4": "This scalability allows businesses to adjust staffing",
+      "about_us_1": "IMMA HIRED: Your Global Overseas Staffing Solution.",
+      "about_us_2": "At IMMA HIRED, we specialize in connecting businesses with exceptional overseas talent, enabling them to scale their workforce seamlessly.",
+      "about_us_3": "Our platform empowers businesses to maintain service excellence while offering the flexibility to adjust staffing levels as needed. With access to global pool of skilled professionals, we ensure your team is always equipped to meet the challenges of the high-tech industry and beyond, wherever you operate.",
       "pause_vid": "Pause Video",
       "watch_vid": "Watch Video",
       "why_us_title_1": "Retain Top Talent",
@@ -378,11 +377,9 @@
       "metrics_3": "成功案例分享",
 
       "about_us": "关于我们",
-      "about_us_1": "领先的酒店行业招聘平台",
-      "about_us_2": "我们将酒店企业与优秀专业人才连接，实现灵活高效的人力扩展。",
-      "about_us_3": "帮助企业持续保持卓越服务质量",
-      "about_us_4": "灵活的人力规模使企业能够快速调整人员配置",
-
+      "about_us_1": "IMMA HIRED：您的全球海外人才招聘解决方案。",
+      "about_us_2": "在 IMMA HIRED，我们专注于将企业与卓越的海外人才连接起来，帮助企业实现无缝的人才扩展。",
+      "about_us_3": "我们的平台助力企业在保持卓越服务质量的同时，灵活调整人员规模。通过接触全球高技能人才库，我们确保您的团队无论身处何地，都能从容应对高科技行业及其他领域的挑战。",
       "pause_vid": "暂停视频",
       "watch_vid": "观看视频",
 
@@ -420,8 +417,9 @@
       "our_team": "我们的团队",
       "contact_1": "联系我们",
       "find_talents": "寻找人才",
-      "testimonials": "客户评价"
-
+      "testimonials": "客户评价",
+      "meet_the_people": "认识幕后团队成员",
+      "meet_the_team": "认识我们的团队"
   },
   "es": {
       "contact_uk": "Contact UK",
@@ -597,11 +595,10 @@
       "metrics_3": "Historias de Éxito Compartidas",
 
       "about_us": "Sobre Nosotros",
-      "about_us_1": "La Plataforma Líder de Contratación en Hospitalidad",
-      "about_us_2": "Conectamos a empresas del sector hotelero con profesionales excepcionales, permitiendo una escalabilidad laboral fluida.",
-      "about_us_3": "Esto ayuda a las empresas a mantener la excelencia en el servicio",
-      "about_us_4": "Esta escalabilidad permite a las empresas ajustar su personal",
-
+      "about_us_1": "IMMA HIRED: Su solución global de contratación de talento internacional.",
+      "about_us_2": "En IMMA HIRED, nos especializamos en conectar a las empresas con talento internacional excepcional, permitiéndoles escalar su fuerza laboral de manera fluida.",
+      "about_us_3": "Nuestra plataforma permite a las empresas mantener la excelencia en el servicio mientras ofrecen la flexibilidad de ajustar los niveles de personal según sea necesario. Con acceso a un grupo global de profesionales altamente cualificados, garantizamos que su equipo esté siempre preparado para afrontar los desafíos de la industria de alta tecnología y más allá, dondequiera que opere.",
+      
       "pause_vid": "Pausar Video",
       "watch_vid": "Ver Video",
 
@@ -639,7 +636,9 @@
       "our_team": "Nuestro Equipo",
       "contact_1": "Contacto",
       "find_talents": "Encontrar Talento",
-      "testimonials": "Testimonios"
+      "testimonials": "Testimonios",
+      "meet_the_people": "Conoce a las personas detrás del proyecto",
+      "meet_the_team": "Conoce al equipo"
     
 }
 

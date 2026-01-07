@@ -342,3 +342,10 @@ html{
     right: 0;
   }
 }
+
+.menu-flags ul {
+  width: max-content !important;
+  min-width: 220px;
+  white-space: nowrap;
+  transform: translateX(-150px);
+}
