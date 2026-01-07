@@ -315,7 +315,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="absolute z-40 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
+        <div className="absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
             <h2 className="text-4xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
               {target.our_story}
             </h2>
