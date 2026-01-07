@@ -23,9 +23,9 @@ export default function Terms() {
     <>
         <Navbar isScrolled = {true} />
         <section className='w-full pt-24'>
-            <div className='h-fit sm:h-[50vh] w-full sm:bg-main px-job-clamp text-main sm:text-white py-10 text-center space-y-3'>
+            <div className='h-fit sm:h-[50vh] w-full sm:bg-main px-job-clamp text-main sm:text-white py-20 text-center space-y-3'>
                 <h2 className='text-main sm:text-white text-3xl sm:text-6xl font-semibold'>{target.terms}</h2>
-                <h2 className='text-sm sm:text-xl font-semibold'>{target.terms_warn}</h2>
+                <h2 className='text-sm sm:text-xl font-semibold text-red-800 animate-pulse'>{target.terms_warn}</h2>
             </div>
             <div className='flex justify-center'>
                 <div className='w-full sm:w-[70%] bg-white sm:-translate-y-32 p-10 rounded-xl sm:shadow-md shadow-gray-300 space-y-10'>
@@ -100,7 +100,7 @@ export default function Terms() {
                         </p>
                         <p>
                             {parse(target.right_p_5)}
-                            <a href="mailto:uk@immahired.global" className='text-blue-700'>uk@immahired.global</a>
+                            <a href="mailto:contact@immahired.cn" className='text-blue-700'>contact@immahired.cn</a>
                         </p>
                     </div>
 
@@ -121,7 +121,7 @@ export default function Terms() {
                         <p className='flex flex-col text-sm gap-2'>
                             <span>IMMA HIRED LTD</span>
                             <span>123a Kings Road , London, England , SW3 4PL</span>
-                            <a href="mailto:uk@immahired.global" className='text-blue-700'>uk@immahired.global</a>
+                            <a href="mailto:contact@immahired.cn" className='text-blue-700'>contact@immahired.cn</a>
                         </p>
                     </div>
 

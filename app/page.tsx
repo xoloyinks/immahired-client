@@ -225,9 +225,9 @@ export default function Home() {
                       hover:-translate-y-[1px]">
               {target.find_jobs}
             </button>
-            <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+            <div className="relative w-full h-[200px] sm:h-[300px] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
               <Image
-                src={"/images/OJXL4E0.jpg"}
+                src={"/images/pexels-divinetechygirl-1181406.jpg"}
                 alt="Image"
                 fill
                 className="object-cover"
@@ -256,9 +256,9 @@ export default function Home() {
                       hover:shadow-lg
                       hover:-translate-y-[1px]
                   ">{target.hire_talents}</button>
-            <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+            <div className="relative w-full h-[200px] sm:h-[300px] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
               <Image
-                src={"/images/3525444.jpg"}
+                src={"/images/pexels-cowomen-1058097-2041627.jpg"}
                 alt="Image"
                 fill
                 className="object-cover"
