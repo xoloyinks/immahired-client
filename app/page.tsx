@@ -192,7 +192,7 @@ export default function Home() {
             fill
             className="object-cover"
           />
-        <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-main sm:text-white px-10">
+        <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-white px-10">
           <p className="text-2xl sm:text-5xl font-bold max-w-4xl max-sm:mb-5">
             {target.research}
           </p>
