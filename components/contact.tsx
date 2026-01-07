@@ -90,26 +90,27 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
           {[
             {
               country: "China",
+              office: "025 5277 0229",
               flag: "https://flagdownload.com/wp-content/uploads/Flag_of_Peoples_Republic_of_China.svg",
               phone: "+86 173 6871 3072",
-              email: "china@immahired.global",
+              email: "contact@immahired.cn",
               address: "Jiangning District , Nanjing City, China",
             },
-            {
-              country: "Armenia",
-              flag: "https://flagdownload.com/wp-content/uploads/Flag_of_Armenia.svg",
-              email: "armenia@immahired.global",
-              address:
-                "Yerevan, 25 Mashtots Avenue, 42A building, zip code: 0001",
-            },
-            {
-              country: "United Kingdom",
-              flag: "https://flagdownload.com/wp-content/uploads/Flag_of_United_Kingdom.svg",
-              phone: "+44 121 318 4548",
-              email: "uk@immahired.global",
-              address:
-                "Suite A, 82 James Carter Road, Mildenhall, IP28 7DE",
-            },
+            // {
+            //   country: "Armenia",
+            //   flag: "https://flagdownload.com/wp-content/uploads/Flag_of_Armenia.svg",
+            //   email: "armenia@immahired.global",
+            //   address:
+            //     "Yerevan, 25 Mashtots Avenue, 42A building, zip code: 0001",
+            // },
+            // {
+            //   country: "United Kingdom",
+            //   flag: "https://flagdownload.com/wp-content/uploads/Flag_of_United_Kingdom.svg",
+            //   phone: "+44 121 318 4548",
+            //   email: "uk@immahired.global",
+            //   address:
+            //     "Suite A, 82 James Carter Road, Mildenhall, IP28 7DE",
+            // },
           ].map((card, i) => (
             <motion.div
               key={i}
@@ -118,7 +119,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
                 y: -8,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
               }}
-              className="w-full sm:w-[30%] rounded-xl p-6 bg-white shadow-lg space-y-4 transition-all"
+              className="w-full sm:w-[30%] rounded-xl max-sm:text-xs p-6 bg-white shadow-lg space-y-4 transition-all"
             >
               {/* Flag */}
               <motion.div
@@ -138,9 +139,15 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
               </div>
 
               <div className="space-y-3 text-sm text-gray-700">
+                {card.office && (
+                  <p>
+                    <span className="font-semibold">Office:</span>{" "}
+                    <a href={`tel:${card.office}`}>{card.office}</a>
+                  </p>
+                )}
                 {card.phone && (
                   <p>
-                    <span className="font-semibold">Phone:</span>{" "}
+                    <span className="font-semibold">Phone/WeChat/WhatsApp:</span>{" "}
                     <a href={`tel:${card.phone}`}>{card.phone}</a>
                   </p>
                 )}

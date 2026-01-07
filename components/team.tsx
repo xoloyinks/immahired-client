@@ -47,7 +47,6 @@ export default function Team({target}: any) {
                         whileHover={{ y: -6 }}
                         transition={{ type: "spring", stiffness: 200, damping: 18 }}
                         className="
-                          group
                           rounded-2xl
                           transition-shadow
                           text-center
