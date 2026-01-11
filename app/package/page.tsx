@@ -9,13 +9,12 @@ import Cookies from 'js-cookie';
 import Packages from '@/components/packages';
 import Footer from '@/components/footer';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 
 export default function Package(){    
     const [ submitId ] = useGetUserMutation();
-    const { data: packageData, isLoading: packageLoading } = useGetPackagesQuery(null)
+    const { data: packageData, isLoading: packageLoading, isError } = useGetPackagesQuery(null)
 
     const languageContext = useContext(LanguageData);
     const jsonData: any = lang;
@@ -49,6 +48,17 @@ export default function Package(){
         <ToastContainer />
         <section className='py-28 px-banner-clamp space-y-10'>
             {/* <Header title={target.package} /> */}
+            {isError && (
+                <div className='w-full h-[50vh] flex flex-col justify-center items-center'>
+
+                    {/* oops gif */}
+                    <img src="/images/wired-outline-1140-error-hover-enlarge.gif" alt="Oops!" className="" />
+
+                    <h2 className='text-red-500 font-semibold sm:w-1/2 text-center'>Failed to load packages. This issue is not caused by anything you did, we&apos;re actively working to resolve it. Please try again later.</h2>
+                    
+
+                </div>
+            )}
                     <div className='space-y-12 sm:space-y-8'>
                         {   
                             packageData && (
