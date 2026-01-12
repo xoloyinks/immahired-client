@@ -4,7 +4,7 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { PiCheckCircleFill } from 'react-icons/pi'
 
 
-export default function Video({ target }: any) {
+export default function Video({ target, isMobileWidth, isMobileHeight }: any) {
     const videoRef = useRef<HTMLVideoElement>(null)
       const [isPlaying, setIsPlaying] = useState(false)
     
@@ -107,11 +107,11 @@ export default function Video({ target }: any) {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="w-full sm:w-[45%] max-w-2xl max-sm:px-2"
                   >
-                    <p className="max-[380px]:text-sm text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
+                    <p className={`max-[380px]:text-sm ${isMobileHeight && isMobileHeight && "text-xs"} text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold`}>
                       {target.about_us}
                     </p>
 
-                    <h2 className="text-3xl max-[380px]:text-xl sm:text-2xl font-semibold mb-6">
+                    <h2 className={`text-3xl max-[380px]:text-xl ${isMobileHeight && isMobileHeight && "text-lg"} sm:text-2xl font-semibold mb-6`}>
                       {target.about_us_1}
                     </h2>
 

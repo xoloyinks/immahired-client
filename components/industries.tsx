@@ -12,7 +12,7 @@ import { HiAcademicCap } from 'react-icons/hi2';
 
 
 
-export default function Industries({ target }: any) {
+export default function Industries({ target, isMobileWidth, isMobileHeight }: any) {
   const industries = [
   {
     title: target.industry_1,
@@ -106,13 +106,13 @@ export default function Industries({ target }: any) {
     const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 8);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 max-[380px]:text-xs py-24">
+    <section className={`max-w-7xl mx-auto px-6 max-[380px]:text-xs ${isMobileHeight && isMobileWidth ? "py-36" : "py-24"}`}>
                   {/* Heading */}
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="text-center max-[380px]:text-2xl text-4xl sm:text-5xl font-black mb-4"
+                    className={`text-center max-[380px]:text-2xl sm:text-5xl font-black mb-4 ${isMobileHeight && isMobileWidth ? "text-xl" : "text-4xl"} `}
                   >
                     {target.explore_industries}
                   </motion.h2>

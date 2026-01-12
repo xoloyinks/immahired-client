@@ -30,6 +30,8 @@ import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   useGetJobsQuery(null);
+  const isMobileWidth = useMediaQuery({ minWidth: 414 });
+  const isMobileHeight = useMediaQuery({ maxHeight: 700 });
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [active] = useContext(UserData);
@@ -172,19 +174,19 @@ export default function Home() {
 
       {/* ================= VIDEO ================= */}
       <section className="max-[380px]:pt-8 pt-16 sm:py-24 px-5 sm:px-20 bg-white">
-        <Video target={target} />
+        <Video target={target} isMobileHeight isMobileWidth />
       </section>
 
       {/* ================= WHY US ================= */}
       <section className=" relative min-h-screen max-sm:h-fit flex justify-center items-centeroverflow-hidden">
-        <div className="absolute w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10 bottom-20 sm:-bottom-52 bg-main/20" />
-        <div className="w-full max-[380px]:py-14 sm:py-24 min-h-screen backdrop-blur-3xl">
+        <div className={`absolute ${isMobileHeight && isMobileWidth ? "bottom-5" : "bottom-20"} w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10  sm:-bottom-52 bg-main/20`} />
+        <div className={`w-full max-[380px]:py-14 min-h-screen backdrop-blur-3xl ${isMobileHeight && isMobileWidth ? "py-16" : "py-24"}`}>
           <WhyUs target={target} />   
         </div>
       </section>
 
       {/* ================= RESEARCH ================= */}
-      <section className="relative h-[22vh] sm:min-h-[65vh]">
+      <section className={`relative  ${isMobileHeight && isMobileWidth ? "h-[25vh]" : "h-[22vh]"} sm:min-h-[65vh]`}>
           <Image
             src="/images/reg.jpg"
             alt="research"
@@ -192,7 +194,7 @@ export default function Home() {
             className="object-cover"
           />
         <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-white px-10">
-          <p className="text-2xl max-[380px]:text-lg sm:text-5xl font-bold max-w-4xl max-sm:mb-5">
+          <p className={`text-2xl max-[380px]:text-lg sm:text-5xl font-bold max-w-4xl max-sm:mb-5`}>
             {target.research}
           </p>
         </div>
@@ -304,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className="w-screen max-[380px]:h-[168vh] py-20  h-[190vh] sm:h-screen relative">
+      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20   sm:h-screen relative`}>
         <div className="absolute top-0 mt-20 h-full w-screen">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
@@ -314,8 +316,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-[380px]:space-y-10 space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
-            <h2 className="text-4xl max-[380px]:text-xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
+        <div className={`absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-[380px]:space-y-10 ${isMobileHeight && isMobileWidth ? "space-y-5" : "space-y-20"}  py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl`}>
+            <h2 className={`max-[380px]:text-xl ${isMobileHeight && isMobileWidth ? "text-xl" : "text-4xl"} sm:text-6xl text-center font-extrabold text-gray-300 w-full`}>
               {target.our_story}
             </h2>
           <div className="flex sm:flex-row gap-10 flex-col justify-evenly ">
@@ -341,10 +343,7 @@ export default function Home() {
         </div>
       </section>
 
-      
-
-      {/* ================= INDUSTRIES ================= */}
-      <Industries target={target} />
+      <Industries target={target} isMobileWidth isMobileHeight />
       <Team target={target} />
       <HowItWorks target={target} />
 
