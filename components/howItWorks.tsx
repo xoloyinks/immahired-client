@@ -99,7 +99,7 @@ const Steps = ({ mode }: { mode: ModeType }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.4 }}
-        className="grid grid-cols-1 max-sm:mx-5 md:grid-cols-3 gap-10 text-left"
+        className="grid grid-cols-1 max-sm:mx-5 xl:grid-cols-3 gap-10 text-left"
       >
         {STEPS[mode].map((item) => (
           <StepCard key={item.step} {...item} />
@@ -123,7 +123,7 @@ const StepCard = ({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl btn-sweep">
+      className="bg-blue-900 sm:w-[80%] xl:w-full w-full mx-auto rounded-2xl p-5 sm:p-10 text-white shadow-xl btn-sweep">
       <div className="flex items-center gap-4 mb-6">
         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
           {step}

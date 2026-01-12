@@ -27,13 +27,13 @@ export default function Video({ target, isMobileWidth, isMobileHeight }: any) {
         }
       }
   return (
-    <div className="flex sm:flex-row flex-col items-center h-full max-[380px]:gap-10 gap-16">
+    <div className="flex xl:flex-row flex-col items-center h-full max-[380px]:gap-10 gap-16">
                   {/* VIDEO CARD */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="relative w-full sm:w-[50%] flex justify-center group"
+                    className="relative w-full xl:w-[50%] flex justify-center group"
                   >
                     {/* MAIN VIDEO CARD */}
                     <div className="relative w-full max-w-[670px] max-[380px]:rounded-xl rounded-3xl overflow-hidden shadow-2xl">
@@ -105,7 +105,7 @@ export default function Video({ target, isMobileWidth, isMobileHeight }: any) {
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="w-full sm:w-[45%] max-w-2xl max-sm:px-2"
+                    className="w-full xl:w-[45%] max-w-2xl max-sm:px-2"
                   >
                     <p className={`max-[380px]:text-sm ${isMobileHeight && isMobileHeight && "text-xs"} text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold`}>
                       {target.about_us}

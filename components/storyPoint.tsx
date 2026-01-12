@@ -20,7 +20,7 @@ const StoryPoint = ({
     className="
       group
       relative
-      sm:w-[32%] w-full
+      xl:w-[32%] w-full
       h-fit sm:h-[450px]
       rounded-2xl
       perspective-[1200px]

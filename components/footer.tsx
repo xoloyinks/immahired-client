@@ -44,7 +44,7 @@ export default function Footer() {
                 </div>
             )
         }
-        <div className="flex sm:flex-row flex-col gap-5">
+        <div className="flex xl:flex-row flex-col gap-5">
             <div className="w-full sm:w-[30%] lg:px-16">
                 <div className="font-bold text-xl w-[150px] -translate-y-7 h-[150px] lg:w-[170px] lg:h-[170px] relative">
                     <Image 
@@ -55,7 +55,7 @@ export default function Footer() {
                     />
                 </div>
             </div>
-            <div className="space-y-5 w-full sm:w-[16%]">
+            <div className="space-y-5 w-full xl:w-[16%]">
                 <h1 className='font-semibold'>{target.footer_one_title}</h1>
                 <span className="flex flex-col gap-3">
                     <Link href='/jobs'>{target.footer_one_link1}</Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                     <Link href='/about#contact'>{target.contact_1}</Link>
                 </span>
             </div>
-            <div className="space-y-5 w-full sm:w-[16%]">
+            <div className="space-y-5 w-full xl:w-[16%]">
                 <h1 className='font-semibold'>{target.footer_two_title}</h1>
                 <span className="flex flex-col gap-3">
                     <Link href={userData && userData.data.type === 'employer' ? '/employer' : '/login'}>{target.footer_two_link2}</Link>
@@ -82,7 +82,7 @@ export default function Footer() {
                 </span>
                 </span>
             </div>
-            <div className="space-y-5 w-full sm:w-[16%]">
+            <div className="space-y-5 w-full xl:w-[16%]">
                 <h1 className='font-semibold'>{target.footer_three_title}</h1>
                 <span className="flex flex-col gap-3">
                     <Link href='/about'>{target.footer_three_title_1}</Link>

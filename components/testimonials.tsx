@@ -33,9 +33,9 @@ export default function Testimonial({ target }: any) {
                initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.4 }}
-              className="sm:text-4xl text-2xl max-[380px]:text-xl font-bold text-center w-full sm:w-[30%] flex mx-auto justify-center">{target.test_header}</motion.h1>
+              className="sm:text-4xl text-2xl max-[380px]:text-xl font-bold text-center w-full xl:w-[30%] sm:w-[80%] flex mx-auto justify-center">{target.test_header}</motion.h1>
 
-        <div className="flex sm:flex-row flex-col max-sm:gap-8 justify-between">
+        <div className="flex xl:flex-row flex-col max-sm:gap-8 sm:gap-10 xl:gap-0 justify-between">
             {
                 testimonials.map((testimony, index) => {
                 return(
@@ -44,7 +44,7 @@ export default function Testimonial({ target }: any) {
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="w-full sm:w-[30%] bg-abstract shadow-xl shadow-black text-white rounded-lg p-5 space-y-3">
+                      className="w-full mx-auto sm:w-[80%] xl:w-[30%] bg-abstract shadow-xl shadow-black text-white rounded-lg p-5 space-y-3">
                         <div className="space-y-3 text-sm font-semibold relative">
                           <div className='absolute top-2 text-gray-400 right-5 text-4xl'>
                             <ImQuotesRight />

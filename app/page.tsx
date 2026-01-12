@@ -119,7 +119,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 90 }}
-            className="font-black max-[380px]:text-xl text-6xl w-[90%] sm:max-w-[70%] max-sm:text-3xl"
+            className="font-black max-[380px]:text-xl text-6xl w-[90%] sm:max-w-[85%] xl:max-w-[70%] max-sm:text-3xl"
           >
             {target.h1}
           </motion.h1>
@@ -135,7 +135,7 @@ export default function Home() {
             />
           </div>
 
-          <p className="mt-6 max-w-3xl max-[380px]:text-xs text-xl max-sm:text-sm font-semibold px-6">
+          <p className="mt-6 max-w-3xl sm:max-w-2xl xl:max-w-3xl max-[380px]:text-xs text-xl max-sm:text-sm font-semibold px-6">
             {target.p_banner}
           </p>
 
@@ -179,7 +179,7 @@ export default function Home() {
 
       {/* ================= WHY US ================= */}
       <section className=" relative min-h-screen max-sm:h-fit flex justify-center items-centeroverflow-hidden">
-        <div className={`absolute ${isMobileHeight && isMobileWidth ? "bottom-5" : "bottom-20"} w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10  sm:-bottom-52 bg-main/20`} />
+        <div className={`absolute ${isMobileHeight && isMobileWidth ? "bottom-5" : "bottom-20"} w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10  xl:-bottom-52 bg-main/20`} />
         <div className={`w-full max-[380px]:py-14 min-h-screen backdrop-blur-3xl ${isMobileHeight && isMobileWidth ? "py-16" : "py-24"}`}>
           <WhyUs target={target} />   
         </div>
@@ -201,8 +201,8 @@ export default function Home() {
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
-          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl max-[380px]:-translate-y-10 -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+      <section className="flex xl:flex-row flex-col justify-center items-center gap-20 max-sm:px-5">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl max-[380px]:-translate-y-10 -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
             <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
               <GrUserWorker />
             </p>
@@ -236,7 +236,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
             <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
               <BsBuildingsFill />
             </p>
@@ -270,7 +270,7 @@ export default function Home() {
       </section>
 
       <section className="sm:mb-20 mb-10">
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 sm:py-16">
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 sm:px-10 gap-8 py-8 sm:py-16">
             {[
               { value: "100+", label: target.metrics_1 },
               { value: "5K+", label: target.metrics_2 },
@@ -287,7 +287,7 @@ export default function Home() {
               >
                 <h1
                   className="
-                              sm:text-8xl text-4xl font-black
+                              xl:text-8xl text-4xl font-black
                               tracking-tight
                               bg-clip-text text-transparent
                               bg-main
@@ -306,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20   sm:h-screen relative`}>
+      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20 sm:h-[180vh]  xl:h-screen relative`}>
         <div className="absolute top-0 mt-20 h-full w-screen">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
@@ -320,7 +320,7 @@ export default function Home() {
             <h2 className={`max-[380px]:text-xl ${isMobileHeight && isMobileWidth ? "text-xl" : "text-4xl"} sm:text-6xl text-center font-extrabold text-gray-300 w-full`}>
               {target.our_story}
             </h2>
-          <div className="flex sm:flex-row gap-10 flex-col justify-evenly ">
+          <div className="flex xl:flex-row gap-10 flex-col justify-evenly ">
             <StoryPoint
               index="01"
               title={target.story_1}
