@@ -107,8 +107,6 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       }
     }
 
-    
-
     const logout = (e: any) => {
       e.preventDefault();
       setActive(false);
@@ -118,43 +116,40 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
   return (
     <>
     <motion.nav
-      initial={false}
-      animate={isScrolled ? "scrolled" : "top"}
-      variants={{
-        top: {
-          maxWidth: ["95%", "90%", "85%"],
-          borderRadius: "9999px",
-          // backgroundColor: "#ffffff",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-          borderColor: "rgba(0,0,0,0.08)",
-          marginTop: '20px'
-        },
-        scrolled: {
-          maxWidth: "100%",
-          borderRadius: "0px",
-          // backgroundColor: "rgb(10,10,10)", // abstract
-          boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
-          borderColor: "transparent",
-          marginTop: '0px'
-        },
-      }}
-      transition={{
-        type: "tween",
-        stiffness: 120,
-        damping: 20,
-      }}
-      className={`
-        fixed top-0 left-1/2 -translate-x-1/2
-        w-full ${!isScrolled ? 'w-[95%] sm:w-[90%] lg:w-[85%]' : 'w-full'} 2xl:max-w-[2300px] 2xl:mx-auto
-        z-50
-        border
-        px-2 sm:px-6 lg:px-10  py-1 sm:py-4 max-[380px]:p-3
-        backdrop-blur-2xl
-        bg-white/70
-        flex items-center justify-between
-        text-sm
-      `}
-    >
+  initial="top"
+  animate={isScrolled ? "scrolled" : "top"}
+  variants={{
+    top: {
+      width: "95%",
+      borderRadius: "9999px",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+      borderColor: "rgba(0,0,0,0.08)",
+      marginTop: "20px",
+    },
+    scrolled: {
+      width: "100%",
+      borderRadius: "0px",
+      boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
+      borderColor: "transparent",
+      marginTop: "0px",
+    },
+  }}
+  transition={{
+    duration: 0.35,
+    ease: "easeOut",
+  }}
+  className="
+    fixed top-0 left-1/2 -translate-x-1/2
+    z-50
+    border
+    px-2 sm:px-6 lg:px-10 py-1 sm:py-4
+    backdrop-blur-2xl
+    bg-white/70
+    flex items-center justify-between
+    text-sm
+  "
+>
+
       <div className='w-[40%] relative '>
         <div onClick={() => route.push('/')} className='relative cursor-pointer  flex max-[380px]:w-[200px] max-[380px]:h-[50px] w-[263px] h-[80px] items-center text-logo font-bold'>
             <Image 
