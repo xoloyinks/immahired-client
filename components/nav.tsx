@@ -132,7 +132,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
   animate={isScrolled ? "scrolled" : "top"}
   variants={{
     top: {
-      width: isUltraWide ? "2300px" : "95%",
+      width: isUltraWide ? "2000px" : "93%",
       borderRadius: "9999px",
       boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
       borderColor: "rgba(0,0,0,0.08)",
